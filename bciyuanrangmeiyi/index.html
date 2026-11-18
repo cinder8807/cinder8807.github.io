@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>B次元-二次元原创影像社区-与热爱同行</title>
+<meta name="description" content="B次元官方网站，深耕二次元原创影像的垂直领域内容社区，汇聚动画短片、手作、COS、同人创作与创作者访谈，持续运营的品质内容生态。">
+<style>
+:root{
+  --ink:#12131a;
+  --ink-2:#1b1d28;
+  --card:#22242f;
+  --card-2:#2a2d3a;
+  --line:#33364a;
+  --text:#eceef6;
+  --muted:#9aa0b8;
+  --neon:#c6ff3d;
+  --neon-2:#7b61ff;
+  --pink:#ff5f9e;
+  --radius:16px;
+  --head-h:112px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--head-h)}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 85% -10%,rgba(123,97,255,.22),transparent 60%),
+    radial-gradient(900px 500px at 0% 10%,rgba(198,255,61,.10),transparent 55%),
+    var(--ink);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- 吸顶头部 ---------- */
+.head-fix{position:sticky;top:0;z-index:90}
+.notice{
+  background:linear-gradient(90deg,var(--neon-2),#4d3bd6 55%,#2f6bd6);
+  color:#fff;font-size:13.5px;
+}
+.notice .wrap{display:flex;align-items:center;gap:14px;padding:7px 0;overflow:hidden}
+.notice b{
+  background:rgba(0,0,0,.28);border-radius:6px;padding:1px 8px;font-size:12px;
+  letter-spacing:.05em;flex:none;
+}
+.notice p{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.notice .dot{width:6px;height:6px;border-radius:50%;background:var(--neon);flex:none;box-shadow:0 0 10px var(--neon)}
+
+header.site{
+  background:rgba(18,19,26,.82);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.navbar{display:flex;align-items:center;gap:22px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:10px;flex:none}
+.logo .mark{
+  width:40px;height:40px;border-radius:12px;
+  background:conic-gradient(from 210deg,var(--neon),var(--neon-2),var(--pink),var(--neon));
+  position:relative;display:grid;place-items:center;
+}
+.logo .mark::after{
+  content:"B";position:absolute;inset:3px;border-radius:9px;background:var(--ink);
+  display:grid;place-items:center;font-weight:800;font-size:19px;color:var(--neon);
+  letter-spacing:-.02em;
+}
+.logo .txt strong{display:block;font-size:19px;letter-spacing:.06em;line-height:1.2}
+.logo .txt span{font-size:11px;color:var(--muted);letter-spacing:.22em}
+nav.main{display:flex;gap:4px;margin-left:6px;flex-wrap:wrap}
+nav.main a{
+  font-size:14.5px;padding:8px 12px;border-radius:9px;color:#cfd3e6;transition:.2s;white-space:nowrap;
+}
+nav.main a:hover,nav.main a:focus-visible{background:var(--card-2);color:#fff;outline:none}
+.nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+.search{
+  display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:7px 10px;transition:.2s;
+}
+.search:focus-within{border-color:var(--neon);box-shadow:0 0 0 3px rgba(198,255,61,.14)}
+.search input{
+  background:transparent;border:0;outline:none;color:var(--text);width:150px;font-size:14px;
+}
+.search input::placeholder{color:#7f859c}
+.search button{color:var(--neon);font-size:14px;font-weight:600;padding:0 2px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:11px;
+  font-size:14.5px;font-weight:600;transition:transform .18s,box-shadow .18s,background .18s;
+  border:1px solid transparent;white-space:nowrap;
+}
+.btn-primary{background:var(--neon);color:#0e1016;box-shadow:0 8px 26px rgba(198,255,61,.22)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(198,255,61,.34)}
+.btn-ghost{border-color:var(--line);color:#d8dcef;background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--neon);color:#fff;transform:translateY(-2px)}
+.btn-sm{padding:7px 14px;font-size:13px;border-radius:9px}
+.burger{display:none;width:42px;height:38px;border-radius:10px;border:1px solid var(--line);place-items:center}
+.burger span{display:block;width:18px;height:2px;background:#dfe3f2;border-radius:2px;position:relative}
+.burger span::before,.burger span::after{
+  content:"";position:absolute;left:0;width:18px;height:2px;background:#dfe3f2;border-radius:2px;
+}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+.mobile-panel{display:none;border-top:1px solid var(--line);background:rgba(18,19,26,.97)}
+.mobile-panel.open{display:block}
+.mobile-panel a{display:block;padding:12px 4px;border-bottom:1px solid rgba(255,255,255,.05);font-size:15px}
+
+/* ---------- 首屏 ---------- */
+.hero{padding:64px 0 30px;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;font-size:12.5px;letter-spacing:.12em;
+  color:var(--neon);border:1px solid rgba(198,255,61,.35);border-radius:999px;padding:5px 14px;
+  background:rgba(198,255,61,.06);margin-bottom:20px;
+}
+.kicker i{width:6px;height:6px;background:var(--neon);border-radius:50%;display:block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+h1{
+  font-size:clamp(34px,4.6vw,56px);line-height:1.14;letter-spacing:-.02em;font-weight:800;
+  margin-bottom:10px;
+}
+h1 .grad{
+  background:linear-gradient(100deg,var(--neon) 10%,#8ef2c4 45%,var(--neon-2) 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-sub{font-size:16.5px;color:#b9bfd6;max-width:560px;margin-bottom:22px}
+.hero-sub strong{color:#fff;font-weight:600}
+.stat-row{display:flex;gap:34px;flex-wrap:wrap;margin:26px 0 30px}
+.stat b{display:block;font-size:28px;font-weight:800;letter-spacing:-.01em;color:#fff}
+.stat span{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-visual{position:relative}
+.hero-visual .frame{
+  border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+  transform:perspective(1200px) rotateY(-5deg) rotateX(2deg);
+  transition:transform .5s;
+}
+.hero-visual .frame:hover{transform:perspective(1200px) rotateY(0) rotateX(0)}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+.tag{
+  font-size:12.5px;padding:4px 11px;border-radius:999px;background:var(--card-2);
+  border:1px solid var(--line);color:#c3c9df;
+}
+.tag.neon{color:var(--neon);border-color:rgba(198,255,61,.4);background:rgba(198,255,61,.08)}
+
+/* ---------- 通用 section ---------- */
+section.block{padding:56px 0}
+.sec-head{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap;margin-bottom:30px}
+.sec-head h2{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.01em;font-weight:800}
+.sec-head h2 em{font-style:normal;color:var(--neon)}
+.sec-head p{color:var(--muted);font-size:14.5px;max-width:560px}
+.sec-head .more{margin-left:auto}
+.divider{height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+/* 卡片通用 */
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:transform .25s,border-color .25s,box-shadow .25s;
+  display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(198,255,61,.4);box-shadow:0 18px 40px rgba(0,0,0,.45)}
+.cover{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--card-2)}
+.cover img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.card:hover .cover img{transform:scale(1.05)}
+.cover .play{
+  position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;
+  background:rgba(10,11,16,.55);border:1px solid rgba(255,255,255,.4);
+  display:grid;place-items:center;backdrop-filter:blur(4px);
+}
+.cover .play::after{
+  content:"";width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px;
+}
+.cover .badge{
+  position:absolute;left:10px;top:10px;font-size:11.5px;padding:3px 9px;border-radius:6px;
+  background:rgba(10,11,16,.72);color:var(--neon);border:1px solid rgba(198,255,61,.35);
+  letter-spacing:.04em;
+}
+.cover .dur{
+  position:absolute;right:10px;bottom:10px;font-size:11.5px;background:rgba(10,11,16,.8);
+  padding:2px 8px;border-radius:5px;color:#dfe3f2;
+}
+.card-body{padding:16px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+.card-body h3{font-size:16.5px;line-height:1.45;font-weight:700}
+.card-body p{font-size:13.5px;color:var(--muted);line-height:1.7;flex:1}
+.meta-row{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#8f95ac;flex-wrap:wrap}
+.avatar{
+  width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:700;color:#0d0f14;flex:none;
+}
+.card-foot{display:flex;align-items:center;gap:8px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06)}
+.act{
+  display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:#9aa0b8;
+  padding:5px 9px;border-radius:8px;transition:.18s;
+}
+.act:hover{background:var(--card-2);color:#fff}
+.act.on{color:var(--pink)}
+.act.on svg{fill:var(--pink);stroke:var(--pink)}
+.act svg{width:14px;height:14px;fill:none;stroke:#9aa0b8;stroke-width:1.8}
+.act svg.like-on{fill:var(--neon);stroke:var(--neon)}
+
+/* 焦点区 */
+.focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.focus-main .cover{aspect-ratio:16/9}
+.focus-main .card-body h3{font-size:22px;line-height:1.35}
+.focus-side{display:grid;grid-template-rows:1fr 1fr;gap:22px}
+.focus-side .card{flex-direction:row}
+.focus-side .cover{width:42%;aspect-ratio:auto;flex:none}
+.focus-side .card-body{padding:13px 14px}
+.focus-side .card-body h3{font-size:15px}
+.focus-side .card-body p{font-size:12.5px}
+
+/* 视频流三列 */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.filter-bar{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.chip{
+  font-size:13px;padding:6px 15px;border-radius:999px;border:1px solid var(--line);
+  color:#b8bed6;background:rgba(255,255,255,.02);transition:.2s;
+}
+.chip:hover{border-color:var(--neon);color:#fff}
+.chip.active{background:var(--neon);color:#0d0f14;border-color:var(--neon);font-weight:700}
+
+/* 专题 */
+.topic-list{display:grid;gap:16px}
+.topic{
+  display:grid;grid-template-columns:190px 1fr auto;gap:22px;align-items:center;
+  background:linear-gradient(90deg,var(--card),rgba(34,36,47,.4));
+  border:1px solid var(--line);border-radius:var(--radius);padding:14px;
+  transition:.25s;
+}
+.topic:hover{border-color:rgba(123,97,255,.55);transform:translateX(4px)}
+.topic .cover{aspect-ratio:16/9;border-radius:11px}
+.topic h3{font-size:17.5px;margin-bottom:5px}
+.topic p{font-size:13.5px;color:var(--muted);max-width:640px}
+.topic .state{font-size:12.5px;color:var(--neon);white-space:nowrap;text-align:right}
+.topic .state small{display:block;color:#8f95ac;font-size:12px;margin-top:3px}
+
+/* 创作者 */
+.creators{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.creator{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 18px;text-align:center;transition:.25s;position:relative;overflow:hidden;
+}
+.creator::before{
+  content:"";position:absolute;inset:-40% 30% 60%;background:radial-gradient(circle,rgba(123,97,255,.28),transparent 70%);
+  opacity:0;transition:.3s;
+}
+.creator:hover::before{opacity:1}
+.creator:hover{transform:translateY(-5px);border-color:rgba(123,97,255,.5)}
+.creator .big-ava{
+  width:74px;height:74px;border-radius:50%;margin:0 auto 13px;display:grid;place-items:center;
+  font-size:27px;font-weight:800;color:#0d0f14;position:relative;z-index:1;
+  border:2px solid rgba(255,255,255,.14);
+}
+.creator h3{font-size:16.5px;position:relative;z-index:1}
+.creator .field{font-size:12.5px;color:var(--neon);margin:4px 0 10px;position:relative;z-index:1}
+.creator p{font-size:13px;color:var(--muted);line-height:1.7;position:relative;z-index:1;min-height:66px}
+.creator .nums{display:flex;justify-content:center;gap:16px;font-size:12.5px;color:#9aa0b8;margin:12px 0 14px;position:relative;z-index:1}
+.creator .nums b{display:block;color:#fff;font-size:15px}
+.creator .btn{position:relative;z-index:1;width:100%;justify-content:center}
+
+/* 随笔 */
+.essay-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.essay{
+  border:1px solid var(--line);border-radius:var(--radius);padding:24px;
+  background:linear-gradient(160deg,var(--card-2),rgba(34,36,47,.35));
+  display:flex;flex-direction:column;gap:12px;transition:.25s;
+}
+.essay:hover{border-color:rgba(255,95,158,.45);transform:translateY(-4px)}
+.essay .q{font-size:34px;line-height:1;color:var(--neon);font-weight:800;font-family:Georgia,serif}
+.essay h3{font-size:17px}
+.essay p{font-size:14px;color:#b0b6cd;line-height:1.85}
+.essay .by{font-size:12.5px;color:var(--muted);margin-top:auto}
+
+/* 作品墙 */
+.wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.wall figure{
+  position:relative;border-radius:13px;overflow:hidden;border:1px solid var(--line);margin:0;
+  transition:.3s;
+}
+.wall figure:hover{transform:scale(1.02);border-color:rgba(198,255,61,.5)}
+.wall figure img{width:100%;height:100%;object-fit:cover}
+.wall .w2{grid-column:span 2;grid-row:span 2}
+.wall .w1{aspect-ratio:1/1}
+.wall .w2 img{aspect-ratio:auto}
+.wall figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:10px 12px;font-size:12.5px;
+  background:linear-gradient(transparent,rgba(8,9,13,.92));color:#e8ebf7;
+}
+.wall .w2 figcaption{font-size:14px;padding:14px 16px}
+
+/* 评价 */
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.review{
+  background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;
+  display:flex;flex-direction:column;gap:11px;position:relative;
+}
+.review::after{
+  content:"";position:absolute;left:26px;bottom:-8px;width:16px;height:16px;background:var(--card);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg);
+}
+.review p{font-size:13.8px;color:#bcc2d8;line-height:1.8}
+.review .who{display:flex;align-items:center;gap:9px;font-size:12.5px;color:#9198b0;margin-top:6px}
+.stars{color:var(--neon);font-size:12px;letter-spacing:2px}
+
+/* 数据榜单 */
+.rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rank{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.rank h3{font-size:16px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.rank h3 i{width:6px;height:16px;background:var(--neon);border-radius:3px;display:block}
+.rank ol{list-style:none;display:grid;gap:11px}
+.rank li{display:flex;align-items:center;gap:11px;font-size:13.5px;color:#c7cce0}
+.rank li .no{width:22px;height:22px;border-radius:7px;display:grid;place-items:center;font-size:12px;font-weight:700;background:var(--card-2);color:#9aa0b8;flex:none}
+.rank li:nth-child(1) .no{background:var(--neon);color:#0d0f14}
+.rank li:nth-child(2) .no{background:var(--neon-2);color:#fff}
+.rank li:nth-child(3) .no{background:var(--pink);color:#fff}
+.rank li span{margin-left:auto;font-size:12px;color:#8a90a8}
+
+/* 企业动态 */
+.news-list{display:grid;gap:0;border-top:1px solid var(--line)}
+.news-item{
+  display:grid;grid-template-columns:104px 1fr auto;gap:18px;align-items:center;
+  padding:16px 4px;border-bottom:1px solid var(--line);transition:.2s;
+}
+.news-item:hover{padding-left:10px;background:rgba(255,255,255,.02)}
+.news-item time{font-size:12.5px;color:var(--neon);letter-spacing:.04em}
+.news-item h3{font-size:15.5px;font-weight:600}
+.news-item p{font-size:13px;color:var(--muted)}
+.news-item .go{font-size:12.5px;color:#8f95ac}
+
+/* 合作 */
+.partners{display:grid;grid-template-columns:repeat(6,1fr);gap:14px}
+.partner{
+  border:1px solid var(--line);border-radius:12px;height:74px;display:grid;place-items:center;
+  font-size:13.5px;color:#a9b0c8;background:var(--card);letter-spacing:.06em;
+  transition:.22s;text-align:center;padding:0 8px;
+}
+.partner:hover{border-color:var(--neon);color:#fff;background:var(--card-2)}
+
+/* 投稿灵感 */
+.inspire{display:grid;grid-template-columns:1.1fr 1fr;gap:24px}
+.inspire-panel{
+  background:linear-gradient(150deg,rgba(123,97,255,.18),rgba(198,255,61,.06) 70%,transparent);
+  border:1px solid var(--line);border-radius:20px;padding:28px;
+}
+.inspire-panel h3{font-size:19px;margin-bottom:8px}
+.inspire-panel p{font-size:13.8px;color:#b5bbd2;margin-bottom:18px}
+.idea-list{display:grid;gap:10px}
+.idea{
+  display:flex;gap:12px;align-items:flex-start;background:rgba(10,11,16,.4);
+  border:1px solid var(--line);border-radius:11px;padding:12px 14px;font-size:13.5px;color:#cdd2e5;
+}
+.idea b{color:var(--neon);font-size:12px;flex:none;padding-top:2px;letter-spacing:.06em}
+.guide{display:grid;gap:12px;align-content:start}
+.guide-item{
+  border:1px solid var(--line);border-radius:13px;padding:16px 18px;background:var(--card);
+  display:flex;gap:14px;align-items:center;transition:.2s;
+}
+.guide-item:hover{border-color:rgba(255,95,158,.45);transform:translateX(4px)}
+.guide-item .num{
+  width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;
+  font-weight:800;font-size:14px;background:var(--card-2);color:var(--neon);
+}
+.guide-item h3{font-size:15px}
+.guide-item p{font-size:12.8px;color:var(--muted)}
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:920px}
+details{
+  border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;
+}
+details[open]{border-color:rgba(198,255,61,.4)}
+summary{
+  cursor:pointer;padding:15px 18px;font-size:15px;font-weight:600;display:flex;align-items:center;gap:12px;
+  list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::before{
+  content:"+";color:var(--neon);font-size:17px;font-weight:700;width:16px;flex:none;transition:.2s;
+}
+details[open] summary::before{content:"−"}
+details .ans{padding:0 18px 16px 46px;font-size:13.8px;color:#b3b9d0;line-height:1.85}
+
+/* 联系 */
+.contact{display:grid;grid-template-columns:1.05fr .95fr;gap:24px}
+.contact-card{
+  border:1px solid var(--line);border-radius:20px;padding:30px;
+  background:linear-gradient(160deg,var(--card),rgba(34,36,47,.35));
+}
+.contact-card h2{font-size:26px;margin-bottom:10px}
+.contact-card p{font-size:14px;color:var(--muted);margin-bottom:20px}
+.info-line{display:flex;gap:12px;font-size:14px;padding:10px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+.info-line span:first-child{color:#8f95ac;width:88px;flex:none}
+.info-line span:last-child{color:#dfe3f2}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+/* 页脚 */
+footer.site{border-top:1px solid var(--line);padding:46px 0 30px;margin-top:30px;background:rgba(10,11,16,.5)}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.foot-brand p{font-size:13.5px;color:var(--muted);margin-top:12px;max-width:340px;line-height:1.85}
+.foot-col h4{font-size:14px;margin-bottom:12px;letter-spacing:.06em}
+.foot-col a{display:block;font-size:13.2px;color:#9aa0b8;padding:4px 0;transition:.18s}
+.foot-col a:hover{color:var(--neon)}
+.foot-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:#7f859c;
+}
+
+/* toast */
+.toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);z-index:200;
+  background:#fff;color:#12131a;font-size:13.5px;font-weight:600;padding:11px 20px;border-radius:11px;
+  box-shadow:0 16px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.28s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* 弹窗 */
+.modal-mask{
+  position:fixed;inset:0;z-index:150;background:rgba(6,7,11,.72);backdrop-filter:blur(6px);
+  display:none;place-items:center;padding:22px;
+}
+.modal-mask.open{display:grid}
+.modal{
+  width:min(560px,100%);background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:26px;position:relative;max-height:86vh;overflow:auto;
+}
+.modal h3{font-size:20px;margin-bottom:6px}
+.modal .sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+.modal .close{position:absolute;right:14px;top:12px;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;color:#9aa0b8;font-size:19px}
+.modal .close:hover{background:var(--card-2);color:#fff}
+.form-row{margin-bottom:13px}
+.form-row label{display:block;font-size:13px;color:#b6bcd3;margin-bottom:5px}
+.form-row input,.form-row textarea,.form-row select{
+  width:100%;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;
+  padding:10px 12px;color:var(--text);font:inherit;font-size:14px;outline:none;
+}
+.form-row input:focus,.form-row textarea:focus,.form-row select:focus{border-color:var(--neon)}
+.form-row textarea{min-height:92px;resize:vertical}
+.share-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:6px}
+.share-btn{
+  border:1px solid var(--line);border-radius:11px;padding:14px 6px;font-size:13px;
+  display:grid;place-items:center;gap:6px;color:#c7cce0;transition:.2s;background:var(--card-2);
+}
+.share-btn:hover{border-color:var(--neon);color:#fff;transform:translateY(-2px)}
+.share-btn i{font-style:normal;font-size:19px}
+
+/* 回到顶部 */
+.top-btn{
+  position:fixed;right:22px;bottom:26px;z-index:120;width:46px;height:46px;border-radius:13px;
+  background:var(--neon);color:#0d0f14;display:grid;place-items:center;font-size:18px;font-weight:800;
+  opacity:0;pointer-events:none;transform:translateY(14px);transition:.25s;box-shadow:0 12px 30px rgba(198,255,61,.28);
+}
+.top-btn.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+
+/* 搜索无结果 */
+.no-result{
+  display:none;border:1px dashed var(--line);border-radius:14px;padding:30px;text-align:center;
+  color:var(--muted);font-size:14px;
+}
+.no-result.show{display:block}
+
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr;gap:34px}
+  .hero-visual .frame{transform:none}
+  .focus-grid{grid-template-columns:1fr}
+  .focus-side{grid-template-rows:auto auto}
+  .grid-3,.creators,.reviews,.rank-grid{grid-template-columns:repeat(2,1fr)}
+  .wall{grid-template-columns:repeat(3,1fr)}
+  .topic{grid-template-columns:150px 1fr;gap:16px}
+  .topic .state{grid-column:2;text-align:left}
+  .partners{grid-template-columns:repeat(3,1fr)}
+  .inspire,.contact,.essay-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .nav-right .search{display:none}
+  nav.main{display:none}
+  .burger{display:grid}
+}
+@media(max-width:640px){
+  .grid-3,.grid-2,.creators,.reviews,.rank-grid,.wall{grid-template-columns:1fr}
+  .wall .w2{grid-column:span 1;grid-row:span 1}
+  .focus-side .card{flex-direction:column}
+  .focus-side .cover{width:100%;aspect-ratio:16/9}
+  .topic{grid-template-columns:1fr}
+  .topic .state{grid-column:1}
+  .news-item{grid-template-columns:1fr;gap:4px}
+  .partners{grid-template-columns:repeat(2,1fr)}
+  .stat-row{gap:22px}
+  .hero{padding:40px 0 20px}
+  .nav-right .btn-primary{display:none}
+  .foot-grid{grid-template-columns:1fr}
+  .share-row{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶：公告 + 页头 -->
+<div class="head-fix">
+  <div class="notice">
+    <div class="wrap">
+      <b>官方发布</b>
+      <span class="dot"></span>
+      <p>「次元手作计划」第二期开放报名 12 组名额 · 新增 38 部原创动画短片 · 创作者访谈《画到第十四帧》已上线 · 春季共创挑战投稿截止 5 月 20 日</p>
+    </div>
+  </div>
+  <header class="site">
+    <div class="wrap navbar">
+      <a class="logo" href="#top" aria-label="B次元官方网站首页">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="txt"><strong>B次元</strong><span>ORIGINAL VIDEO</span></span>
+      </a>
+      <nav class="main" aria-label="主导航">
+        <a href="#focus">焦点影像</a>
+        <a href="#feed">热门内容</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+      <div class="nav-right">
+        <div class="search" role="search">
+          <input id="searchInput" type="search" placeholder="搜索短片 / 创作者 / 专题" aria-label="搜索站内内容">
+          <button id="searchBtn" type="button">搜索</button>
+        </div>
+        <button class="btn btn-primary btn-sm" type="button" data-modal="submit">我要投稿</button>
+        <button class="burger" id="burger" type="button" aria-label="展开导航" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-panel" id="mobilePanel">
+      <div class="wrap">
+        <a href="#focus">焦点影像</a>
+        <a href="#feed">热门内容</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系我们</a>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker"><i></i>B次元官方网站 · 二次元原创影像社区</span>
+        <h1>B次元：让每一帧<span class="grad">热爱</span>都有回声</h1>
+        <p class="hero-sub">
+          作为深耕二次元垂直领域的视频品牌，B次元官方网站致力于为<strong>原创动画、手作、COS、同人音乐与影像表达</strong>搭建高品质内容生态。
+          我们相信兴趣值得被认真对待，也相信社区的力量能让创作者走得更远。
+        </p>
+        <p class="hero-sub">
+          自 2019 年持续运营至今，平台累计收录超过 18 万部用户原创作品，与 2,600 余位签约创作者保持长期合作，
+          每年举办 12 场官方企划与共创挑战。这里没有喧闹的流量游戏，只有耐心的陪伴、真实的反馈与专业的内容打磨。
+          从一支 30 秒的分镜草稿，到一部完整的原创短片，B次元始终站在创作者身边，做值得信赖的影像伙伴。
+        </p>
+        <div class="stat-row">
+          <div class="stat"><b data-count="186000">18.6万</b><span>原创影像作品</span></div>
+          <div class="stat"><b data-count="2600">2,600+</b><span>签约合作创作者</span></div>
+          <div class="stat"><b data-count="73">73万</b><span>社区活跃成员</span></div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#feed">浏览精品内容</a>
+          <button class="btn btn-ghost" type="button" data-modal="submit">报名共创挑战</button>
+          <button class="btn btn-ghost" type="button" data-modal="share">分享官网</button>
+        </div>
+        <div class="hero-tags">
+          <span class="tag neon">原创动画</span>
+          <span class="tag">手作定格</span>
+          <span class="tag">COS 影像</span>
+          <span class="tag">同人音乐</span>
+          <span class="tag">分镜教程</span>
+          <span class="tag">创作者访谈</span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="frame">
+          <img alt="B次元品牌主视觉：霓虹色分镜稿与动画角色剪影组成的原创影像画面" width="960" height="540"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='960' height='540' viewBox='0 0 960 540'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23141726'/%3E%3Cstop offset='1' stop-color='%232b2160'/%3E%3C/linearGradient%3E%3ClinearGradient id='g2' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23c6ff3d'/%3E%3Cstop offset='1' stop-color='%237b61ff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='960' height='540' fill='url(%23g1)'/%3E%3Cg opacity='.35' stroke='%233c4364' stroke-width='1'%3E%3Cpath d='M0 120h960M0 240h960M0 360h960M0 480h960M120 0v540M240 0v540M360 0v540M480 0v540M600 0v540M720 0v540M840 0v540'/%3E%3C/g%3E%3Ccircle cx='700' cy='200' r='130' fill='none' stroke='url(%23g2)' stroke-width='3' opacity='.9'/%3E%3Ccircle cx='700' cy='200' r='88' fill='none' stroke='%23ff5f9e' stroke-width='2' opacity='.65'/%3E%3Ccircle cx='700' cy='200' r='46' fill='%23c6ff3d' opacity='.16'/%3E%3Cpath d='M660 172l64 34-64 34z' fill='%23c6ff3d'/%3E%3Cg fill='%23e7ebff' opacity='.9'%3E%3Ccircle cx='180' cy='180' r='26'/%3E%3Crect x='160' y='220' width='40' height='90' rx='20'/%3E%3Crect x='146' y='316' width='16' height='86' rx='8'/%3E%3Crect x='198' y='316' width='16' height='86' rx='8'/%3E%3C/g%3E%3Cg opacity='.8'%3E%3Crect x='300' y='392' width='120' height='8' rx='4' fill='%237b61ff'/%3E%3Crect x='300' y='414' width='220' height='8' rx='4' fill='%23303652'/%3E%3Crect x='300' y='436' width='170' height='8' rx='4' fill='%23303652'/%3E%3C/g%3E%3Cg fill='%23c6ff3d'%3E%3Crect x='300' y='120' width='6' height='40'/%3E%3Crect x='318' y='132' width='6' height='28'/%3E%3Crect x='336' y='110' width='6' height='50'/%3E%3Crect x='354' y='140' width='6' height='20'/%3E%3C/g%3E%3C/svg%3E">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点影像 -->
+  <section class="block" id="focus">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>焦点影像 <em>／ 本周官方精选</em></h2>
+          <p>由 B次元编辑部与社区评审团共同推选，聚焦原创、正版与品质，每期呈现值得反复观看的短片与企划。</p>
+        </div>
+        <a class="more tag neon" href="#feed">全部精品内容 →</a>
+      </div>
+
+      <div class="focus-grid">
+        <article class="card focus-main">
+          <div class="cover">
+            <img alt="原创动画短片《第十四帧》封面：夜色中的作画台与悬浮的光点" loading="lazy" width="800" height="450"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%231b1630'/%3E%3Cstop offset='1' stop-color='%230d0f18'/%3E%3C/linearGradient%3E%3CradialGradient id='b' cx='.7' cy='.3' r='.6'%3E%3Cstop offset='0' stop-color='%237b61ff' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%237b61ff' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23a)'/%3E%3Crect width='800' height='450' fill='url(%23b)'/%3E%3Crect x='90' y='270' width='520' height='12' rx='6' fill='%23353a55'/%3E%3Crect x='120' y='150' width='330' height='110' rx='8' fill='%23222638' stroke='%2343486b'/%3E%3Cg stroke='%23c6ff3d' stroke-width='2' opacity='.8' fill='none'%3E%3Cpath d='M150 230c30-50 60 20 90-30s60 40 90-10'/%3E%3C/g%3E%3Ccircle cx='610' cy='140' r='52' fill='none' stroke='%23ff5f9e' stroke-width='2'/%3E%3Ccircle cx='610' cy='140' r='20' fill='%23c6ff3d' opacity='.7'/%3E%3Cg fill='%23c6ff3d' opacity='.9'%3E%3Ccircle cx='470' cy='90' r='4'/%3E%3Ccircle cx='520' cy='60' r='3'/%3E%3Ccircle cx='690' cy='250' r='4'/%3E%3Ccircle cx='720' cy='310' r='3'/%3E%3C/g%3E%3Crect x='90' y='330' width='180' height='9' rx='4' fill='%237b61ff' opacity='.8'/%3E%3C/svg%3E">
+            <span class="badge">官方精选</span>
+            <span class="dur">08:24</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>《第十四帧》：一支原创动画短片如何在 47 天里长出骨架</h3>
+            <p>从分镜草稿到最终合成，导演「南枝」带着 6 人小队用 47 天完成了这支 8 分钟的原创短片。本期焦点影像完整记录创作幕后，还原一个反复修改第十四帧的深夜。</p>
+            <div class="meta-row">
+              <span class="avatar" style="background:#c6ff3d">南</span>
+              <span>南枝工作室</span><span>·</span><span>原创动画</span><span>·</span><span>2.7 万次收藏</span>
+            </div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="3124">♡ <span>3,124</span></button>
+              <button class="act fav" type="button" data-fav="1">☆ 收藏</button>
+              <button class="act" type="button" data-modal="comment">💬 评论 186</button>
+              <button class="act" type="button" data-share="《第十四帧》：一支原创动画短片如何在 47 天里长出骨架">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <div class="focus-side">
+          <article class="card">
+            <div class="cover">
+              <img alt="定格动画《纸片城市的黄昏》封面：纸板搭建的街道与橙色天空" loading="lazy" width="400" height="300"
+                src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='s1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23ffb36b'/%3E%3Cstop offset='.55' stop-color='%23ff7e5f'/%3E%3Cstop offset='1' stop-color='%232c2039'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23s1)'/%3E%3Ccircle cx='300' cy='80' r='34' fill='%23fff3c4' opacity='.85'/%3E%3Cg fill='%232a2033'%3E%3Crect x='20' y='150' width='46' height='110'/%3E%3Crect x='76' y='120' width='38' height='140'/%3E%3Crect x='126' y='170' width='52' height='90'/%3E%3Crect x='190' y='135' width='34' height='125'/%3E%3Crect x='236' y='180' width='44' height='80'/%3E%3Crect x='292' y='150' width='52' height='110'/%3E%3C/g%3E%3Cg fill='%23ffd66b' opacity='.9'%3E%3Crect x='86' y='136' width='7' height='9'/%3E%3Crect x='102' y='136' width='7' height='9'/%3E%3Crect x='86' y='156' width='7' height='9'/%3E%3Crect x='246' y='196' width='7' height='9'/%3E%3Crect x='262' y='196' width='7' height='9'/%3E%3C/g%3E%3Cpath d='M0 260h400v40H0z' fill='%231d1727'/%3E%3C/svg%3E">
+              <span class="badge">定格手作</span>
+              <span class="dur">05:12</span>
+              <span class="play" aria-hidden="true"></span>
+            </div>
+            <div class="card-body">
+              <h3>纸板、灯光与 1,840 次快门</h3>
+              <p>用回收纸板做一个黄昏里的城市，逐帧拍摄 6 天。</p>
+              <div class="meta-row"><span class="avatar" style="background:#ffb36b">纸</span><span>纸片工坊</span><span>·</span><span>9,320 收藏</span></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">
+              <img alt="COS影像《银灰骑士团》封面：逆光中的银色假发与金属质感披风" loading="lazy" width="400" height="300"
+                src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='s2' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23282f4d'/%3E%3Cstop offset='1' stop-color='%23141a2c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23s2)'/%3E%3Ccircle cx='200' cy='140' r='86' fill='none' stroke='%23a9b7d8' stroke-width='1' opacity='.4'/%3E%3Cpath d='M110 300c0-58 40-104 90-104s90 46 90 104z' fill='%233b4667'/%3E%3Ccircle cx='200' cy='140' r='46' fill='%23ccd4e8'/%3E%3Cpath d='M158 126c14-30 70-30 84 0-16 12-68 12-84 0z' fill='%23eef2ff'/%3E%3Cpath d='M176 162l24 20 24-20' fill='none' stroke='%238d9ab8' stroke-width='3'/%3E%3Cg stroke='%23c6ff3d' stroke-width='2' opacity='.7'%3E%3Cpath d='M60 60l40 40M340 60l-40 40'/%3E%3C/g%3E%3C/svg%3E">
+              <span class="badge">COS 影像</span>
+              <span class="dur">03:48</span>
+              <span class="play" aria-hidden="true"></span>
+            </div>
+            <div class="card-body">
+              <h3>银灰骑士团：一场雨夜外景的布光复盘</h3>
+              <p>三盏灯、一块反光板，拍出铠甲应有的冷光泽。</p>
+              <div class="meta-row"><span class="avatar" style="background:#a9b7d8">雾</span><span>雾岛摄影组</span><span>·</span><span>6,104 收藏</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门内容流 -->
+  <section class="block" id="feed">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>热门内容 <em>／ 社区正在看</em></h2>
+          <p>覆盖教程干货、深度测评、人物访谈、创作幕后与在地同好活动，全部为站内原创与正版授权内容。</p>
+        </div>
+      </div>
+
+      <div class="filter-bar" id="filterBar">
+        <button class="chip active" type="button" data-filter="all">全部</button>
+        <button class="chip" type="button" data-filter="动画">原创动画</button>
+        <button class="chip" type="button" data-filter="手作">手作定格</button>
+        <button class="chip" type="button" data-filter="COS">COS 影像</button>
+        <button class="chip" type="button" data-filter="教程">教程干货</button>
+        <button class="chip" type="button" data-filter="访谈">人物访谈</button>
+      </div>
+
+      <div class="grid-3" id="feedGrid">
+        <article class="card" data-cat="教程" data-search="分镜 教程 逐帧 动画 入门">
+          <div class="cover">
+            <img alt="分镜教程封面：桌面上的手绘分镜表格与铅笔" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23f2eee4'/%3E%3Cg stroke='%23c9c2b2' stroke-width='2' fill='none'%3E%3Crect x='50' y='40' width='150' height='90'/%3E%3Crect x='225' y='40' width='150' height='90'/%3E%3Crect x='400' y='40' width='150' height='90'/%3E%3Crect x='50' y='155' width='150' height='90'/%3E%3Crect x='225' y='155' width='150' height='90'/%3E%3Crect x='400' y='155' width='150' height='90'/%3E%3C/g%3E%3Cg stroke='%23453a33' stroke-width='2.4' fill='none' stroke-linecap='round'%3E%3Cpath d='M70 110c18-34 34 6 52-18'/%3E%3Ccircle cx='150' cy='85' r='14'/%3E%3Cpath d='M250 100l30-32 30 32z'/%3E%3Cpath d='M420 115c22-30 48-30 70 0'/%3E%3Cpath d='M70 220c20 0 40-18 62 0s40 18 60 0'/%3E%3Cpath d='M250 200h80M250 220h50'/%3E%3Cpath d='M430 210l40 20-40 20z'/%3E%3C/g%3E%3Crect x='50' y='280' width='300' height='10' rx='5' fill='%23d8d1bf'/%3E%3C/svg%3E">
+            <span class="badge">教程干货</span>
+            <span class="dur">12:06</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>分镜入门：把 30 秒的镜头拆成 9 个格子</h3>
+            <p>不讲玄学，只讲能立刻上手的方法。从机位轴线到节奏留白，一支片子真正开始的地方是纸面。</p>
+            <div class="meta-row"><span class="avatar" style="background:#c6ff3d">栗</span><span>栗子分镜课</span><span>·</span><span>1.4 万收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="5208">♡ <span>5,208</span></button>
+              <button class="act fav" type="button" data-fav="2">☆ 收藏</button>
+              <button class="act" type="button" data-share="分镜入门：把 30 秒的镜头拆成 9 个格子">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="访谈" data-search="访谈 创作者 声音 同人">
+          <div class="cover">
+            <img alt="访谈封面：录音棚内的麦克风与暖色声波图形" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Cdefs%3E%3ClinearGradient id='i1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a2a58'/%3E%3Cstop offset='1' stop-color='%231d1a30'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='338' fill='url(%23i1)'/%3E%3Cg stroke='%23ff5f9e' stroke-width='3' fill='none' opacity='.8'%3E%3Cpath d='M80 169h30l14-46 20 92 18-60 16 34h28l14-70 22 116 16-66h40l14-40 18 70h46'/%3E%3C/g%3E%3Crect x='392' y='70' width='130' height='198' rx='14' fill='%232a2440' stroke='%234d4470'/%3E%3Ccircle cx='457' cy='110' r='22' fill='%23ff5f9e' opacity='.7'/%3E%3Crect x='420' y='150' width='74' height='6' rx='3' fill='%23c6ff3d'/%3E%3Crect x='420' y='168' width='52' height='6' rx='3' fill='%234d4470'/%3E%3Crect x='420' y='186' width='62' height='6' rx='3' fill='%234d4470'/%3E%3C/svg%3E">
+            <span class="badge">人物访谈</span>
+            <span class="dur">21:35</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>她把同人音乐做成了产业：与「白噪岛」的三小时对谈</h3>
+            <p>从卧室录音到 12 人的制作团队，聊聊版权、分工与热爱如何变成可持续的职业路径。</p>
+            <div class="meta-row"><span class="avatar" style="background:#ff5f9e">白</span><span>B次元编辑部</span><span>·</span><span>9,860 收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="4102">♡ <span>4,102</span></button>
+              <button class="act fav" type="button" data-fav="3">☆ 收藏</button>
+              <button class="act" type="button" data-share="她把同人音乐做成了产业：与「白噪岛」的三小时对谈">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="动画" data-search="原创 动画 短片 赛博 城市">
+          <div class="cover">
+            <img alt="原创动画《霓虹第七街》封面：雨中的霓虹街道与撑伞少年" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Cdefs%3E%3ClinearGradient id='c1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23121a2e'/%3E%3Cstop offset='1' stop-color='%230b0e18'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='338' fill='url(%23c1)'/%3E%3Cg opacity='.9'%3E%3Crect x='30' y='90' width='60' height='190' fill='%231b2440'/%3E%3Crect x='100' y='60' width='44' height='220' fill='%23162037'/%3E%3Crect x='470' y='80' width='56' height='200' fill='%231b2440'/%3E%3Crect x='536' y='120' width='40' height='160' fill='%23162037'/%3E%3C/g%3E%3Cg fill='%23c6ff3d' opacity='.85'%3E%3Crect x='46' y='110' width='12' height='6'/%3E%3Crect x='46' y='130' width='12' height='6'/%3E%3Crect x='484' y='100' width='12' height='6'/%3E%3Crect x='484' y='124' width='12' height='6'/%3E%3C/g%3E%3Cg fill='%23ff5f9e'%3E%3Crect x='210' y='60' width='8' height='220'/%3E%3Crect x='240' y='40' width='6' height='240'/%3E%3Crect x='330' y='70' width='7' height='210'/%3E%3C/g%3E%3Cpath d='M270 210a26 26 0 0152 0v58h-52z' fill='%23dfe6ff' opacity='.9'/%3E%3Ccircle cx='296' cy='192' r='17' fill='%23dfe6ff' opacity='.9'/%3E%3Cpath d='M258 176c14-26 62-26 76 0z' fill='%23c6ff3d' opacity='.7'/%3E%3Cg stroke='%237b61ff' stroke-width='2' opacity='.5'%3E%3Cpath d='M0 300h600'/%3E%3C/g%3E%3C/svg%3E">
+            <span class="badge">原创动画</span>
+            <span class="dur">06:40</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>《霓虹第七街》：一个撑伞少年的 40 个镜头</h3>
+            <p>没有对白，全靠光影与走位叙事。创作者用 Blender 与手绘贴图完成了一次城市漫游。</p>
+            <div class="meta-row"><span class="avatar" style="background:#7b61ff">拾</span><span>拾光绘影</span><span>·</span><span>2.2 万收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="8810">♡ <span>8,810</span></button>
+              <button class="act fav" type="button" data-fav="4">☆ 收藏</button>
+              <button class="act" type="button" data-share="《霓虹第七街》：一个撑伞少年的 40 个镜头">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="手作" data-search="手作 黏土 定格 拍摄 打光">
+          <div class="cover">
+            <img alt="手作视频封面：黏土小人偶与环形补光灯的桌面工作台" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23f6e7d3'/%3E%3Crect x='0' y='240' width='600' height='98' fill='%23e2c9a8'/%3E%3Ccircle cx='300' cy='96' r='66' fill='none' stroke='%23ffb36b' stroke-width='12'/%3E%3Ccircle cx='300' cy='96' r='66' fill='%23fff6e6' opacity='.6'/%3E%3Cg%3E%3Ccircle cx='262' cy='200' r='30' fill='%23ff8f6b'/%3E%3Crect x='246' y='226' width='34' height='46' rx='14' fill='%237b61ff'/%3E%3Ccircle cx='338' cy='206' r='26' fill='%23c6ff3d'/%3E%3Crect x='324' y='228' width='30' height='42' rx='13' fill='%23ff5f9e'/%3E%3C/g%3E%3Crect x='60' y='268' width='150' height='12' rx='6' fill='%23d2b38c'/%3E%3Crect x='440' y='60' width='90' height='14' rx='7' fill='%23d2b38c'/%3E%3C/svg%3E">
+            <span class="badge">手作定格</span>
+            <span class="dur">09:18</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>黏土定格的三件小事：补光、固定与耐心</h3>
+            <p>新手最常踩的三个坑，一次性说清。附上我们的拍摄台清单与逐帧记录表模板。</p>
+            <div class="meta-row"><span class="avatar" style="background:#ff8f6b">黏</span><span>黏土研究所</span><span>·</span><span>7,530 收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="2930">♡ <span>2,930</span></button>
+              <button class="act fav" type="button" data-fav="5">☆ 收藏</button>
+              <button class="act" type="button" data-share="黏土定格的三件小事：补光、固定与耐心">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="COS" data-search="COS 摄影 后期 棚拍 妆造">
+          <div class="cover">
+            <img alt="COS教程封面：后期软件界面与分层调色曲线" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23182030'/%3E%3Crect x='40' y='40' width='360' height='230' rx='10' fill='%23222c44' stroke='%2338466a'/%3E%3Cg stroke='%2338466a' stroke-width='1.5'%3E%3Cpath d='M40 76h360'/%3E%3Cpath d='M170 76v194'/%3E%3C/g%3E%3Cg fill='%23c6ff3d' opacity='.9'%3E%3Crect x='58' y='52' width='8' height='8' rx='2'/%3E%3Crect x='74' y='52' width='8' height='8' rx='2'/%3E%3Crect x='90' y='52' width='8' height='8' rx='2'/%3E%3C/g%3E%3Cg stroke='%234a5c8a' stroke-width='2' fill='none'%3E%3Crect x='60' y='96' width='92' height='56'/%3E%3Crect x='60' y='164' width='92' height='56'/%3E%3C/g%3E%3Cpath d='M190 250c0-56 36-96 80-96s80 40 80 96' fill='none' stroke='%23ff5f9e' stroke-width='3'/%3E%3Cpath d='M196 240l28-56 30 40 26-64 32 80' fill='none' stroke='%23c6ff3d' stroke-width='3'/%3E%3Crect x='424' y='60' width='136' height='210' rx='10' fill='%23222c44' stroke='%2338466a'/%3E%3Crect x='442' y='82' width='100' height='10' rx='5' fill='%2338466a'/%3E%3Crect x='442' y='104' width='76' height='10' rx='5' fill='%2338466a'/%3E%3Crect x='442' y='126' width='90' height='10' rx='5' fill='%237b61ff'/%3E%3Crect x='442' y='160' width='100' height='60' rx='8' fill='%23182030'/%3E%3C/svg%3E">
+            <span class="badge">COS 影像</span>
+            <span class="dur">14:52</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>COS 后期必修：把棚拍的灰调救回来</h3>
+            <p>从肤色调统一到服饰质感还原，12 个步骤带你把原片推到可发布的状态。</p>
+            <div class="meta-row"><span class="avatar" style="background:#4a5c8a">后</span><span>灰阶后期室</span><span>·</span><span>1.1 万收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="6015">♡ <span>6,015</span></button>
+              <button class="act fav" type="button" data-fav="6">☆ 收藏</button>
+              <button class="act" type="button" data-share="COS 后期必修：把棚拍的灰调救回来">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="访谈" data-search="访谈 配音 声优 行业 观察">
+          <div class="cover">
+            <img alt="行业观察封面：分轨音波与台词本构成的声音工作台" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Cdefs%3E%3ClinearGradient id='v1' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%231b2b3a'/%3E%3Cstop offset='1' stop-color='%230e1620'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='600' height='338' fill='url(%23v1)'/%3E%3Cg stroke='%2338e0c6' stroke-width='2.4' opacity='.85' fill='none'%3E%3Cpath d='M40 120h44l10-40 14 76 12-52h30l10 40 12-64 16 88h26l10-34h30'/%3E%3Cpath d='M40 190h30l12 34 14-66 12 44h26l12-28 14 58 14-74h34'/%3E%3C/g%3E%3Crect x='380' y='60' width='170' height='220' rx='12' fill='%23121c28' stroke='%23293d52'/%3E%3Cg fill='%2338e0c6' opacity='.55'%3E%3Crect x='400' y='86' width='130' height='8' rx='4'/%3E%3Crect x='400' y='106' width='96' height='8' rx='4'/%3E%3Crect x='400' y='126' width='118' height='8' rx='4'/%3E%3Crect x='400' y='146' width='72' height='8' rx='4'/%3E%3C/g%3E%3Cg fill='%23c6ff3d'%3E%3Ccircle cx='410' cy='212' r='5'/%3E%3Ccircle cx='430' cy='212' r='5'/%3E%3Ccircle cx='450' cy='212' r='5'/%3E%3C/g%3E%3C/svg%3E">
+            <span class="badge">行业观察</span>
+            <span class="dur">17:03</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>配音棚里的新人一年：从试音到签下第一部主役</h3>
+            <p>我们跟拍了三位新人声优的日常，也记录了行业真实的门槛、时薪与成长曲线。</p>
+            <div class="meta-row"><span class="avatar" style="background:#38e0c6">声</span><span>B次元纪录组</span><span>·</span><span>8,240 收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="3560">♡ <span>3,560</span></button>
+              <button class="act fav" type="button" data-fav="7">☆ 收藏</button>
+              <button class="act" type="button" data-share="配音棚里的新人一年：从试音到签下第一部主役">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="动画" data-search="原创 动画 MV 分镜 音乐">
+          <div class="cover">
+            <img alt="原创动画MV封面：飘浮的石膏几何体与舞动线条人物" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23efe9f7'/%3E%3Ccircle cx='130' cy='110' r='56' fill='%237b61ff' opacity='.85'/%3E%3Crect x='230' y='60' width='90' height='90' rx='14' fill='%23ff5f9e' opacity='.75' transform='rotate(14 275 105)'/%3E%3Cpath d='M400 60l70 120h-140z' fill='%23c6ff3d' opacity='.9'/%3E%3Cpath d='M90 300c40-80 90-40 130-90s80-60 120-10 60 70 100 40' fill='none' stroke='%2312131a' stroke-width='4' stroke-linecap='round'/%3E%3Ccircle cx='420' cy='250' r='26' fill='none' stroke='%2312131a' stroke-width='4'/%3E%3Crect x='60' y='250' width='26' height='60' rx='13' fill='%237b61ff' opacity='.6'/%3E%3C/svg%3E">
+            <span class="badge">原创动画</span>
+            <span class="dur">04:26</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>一支动画 MV 的 9 版草案：被删掉的分镜去哪了</h3>
+            <p>创作者公开了全部废弃稿，讲述为什么好看的镜头不一定服务于叙事。</p>
+            <div class="meta-row"><span class="avatar" style="background:#7b61ff">贰</span><span>贰号画室</span><span>·</span><span>1.6 万收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="7240">♡ <span>7,240</span></button>
+              <button class="act fav" type="button" data-fav="8">☆ 收藏</button>
+              <button class="act" type="button" data-share="一支动画 MV 的 9 版草案：被删掉的分镜去哪了">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="教程" data-search="教程 剪辑 节奏 转场 软件">
+          <div class="cover">
+            <img alt="剪辑教程封面：时间轴轨道与波形剪辑点标记" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23161b26'/%3E%3Cg stroke='%232a3348' stroke-width='1'%3E%3Cpath d='M0 70h600M0 140h600M0 210h600M0 280h600'/%3E%3C/g%3E%3Cg fill='%237b61ff' opacity='.8'%3E%3Crect x='40' y='84' width='120' height='34' rx='5'/%3E%3Crect x='170' y='84' width='70' height='34' rx='5'/%3E%3Crect x='250' y='84' width='150' height='34' rx='5'/%3E%3C/g%3E%3Cg fill='%2338e0c6' opacity='.75'%3E%3Crect x='60' y='154' width='90' height='28' rx='5'/%3E%3Crect x='160' y='154' width='180' height='28' rx='5'/%3E%3Crect x='350' y='154' width='120' height='28' rx='5'/%3E%3C/g%3E%3Cpath d='M40 240h520' stroke='%23c6ff3d' stroke-width='2.4'/%3E%3Cg fill='%23c6ff3d'%3E%3Crect x='150' y='226' width='3' height='28'/%3E%3Crect x='300' y='226' width='3' height='28'/%3E%3Crect x='440' y='226' width='3' height='28'/%3E%3C/g%3E%3C/svg%3E">
+            <span class="badge">教程干货</span>
+            <span class="dur">11:14</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>节奏剪辑实战：让观众在第 8 秒留下来</h3>
+            <p>拆解 6 支高完播短片的开场结构，给出一套可直接套用的剪辑时间表。</p>
+            <div class="meta-row"><span class="avatar" style="background:#38e0c6">剪</span><span>剪影笔记</span><span>·</span><span>9,450 收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="4870">♡ <span>4,870</span></button>
+              <button class="act fav" type="button" data-fav="9">☆ 收藏</button>
+              <button class="act" type="button" data-share="节奏剪辑实战：让观众在第 8 秒留下来">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card" data-cat="手作" data-search="手作 服饰 道具 制作 舞台">
+          <div class="cover">
+            <img alt="道具制作封面：皮革、铆钉与金属扣件摆放在工作台上" loading="lazy" width="600" height="338"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='338' viewBox='0 0 600 338'%3E%3Crect width='600' height='338' fill='%23e9dfcf'/%3E%3Crect x='0' y='250' width='600' height='88' fill='%23d4c4aa'/%3E%3Cpath d='M100 250c0-70 60-120 140-120s140 50 140 120z' fill='%238d5a3c'/%3E%3Cpath d='M130 250c0-56 48-96 110-96s110 40 110 96z' fill='%23a86b45'/%3E%3Cg fill='%23c9bda6'%3E%3Ccircle cx='180' cy='200' r='6'/%3E%3Ccircle cx='220' cy='186' r='6'/%3E%3Ccircle cx='260' cy='182' r='6'/%3E%3Ccircle cx='300' cy='190' r='6'/%3E%3C/g%3E%3Crect x='420' y='120' width='120' height='130' rx='10' fill='%236f7a8c'/%3E%3Ccircle cx='480' cy='150' r='16' fill='%23e9dfcf'/%3E%3Crect x='444' y='190' width='72' height='8' rx='4' fill='%23e9dfcf'/%3E%3C/svg%3E">
+            <span class="badge">手作干货</span>
+            <span class="dur">10:37</span>
+            <span class="play" aria-hidden="true"></span>
+          </div>
+          <div class="card-body">
+            <h3>盔甲道具从 0 到 1：EVA、皮革与热风枪</h3>
+            <p>一份写给自己团队的新人手册，材料清单、成本区间与常见翻车点都在里面。</p>
+            <div class="meta-row"><span class="avatar" style="background:#a86b45">甲</span><span>锻造台小组</span><span>·</span><span>6,720 收藏</span></div>
+            <div class="card-foot">
+              <button class="act like" type="button" data-like="3120">♡ <span>3,120</span></button>
+              <button class="act fav" type="button" data-fav="10">☆ 收藏</button>
+              <button class="act" type="button" data-share="盔甲道具从 0 到 1：EVA、皮革与热风枪">↗ 分享</button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="no-result" id="noResult">没有找到匹配的内容，换个关键词试试，或浏览上方推荐分类。</div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="block" id="topics">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>专题企划 <em>／ 官方持续运营中</em></h2>
+          <p>由 B次元官方发起、社区共创的长期企划，涵盖比赛、挑战、投票与线下同好活动，欢迎报名参与。</p>
+        </div>
+      </div>
+      <div class="topic-list">
+        <article class="topic">
+          <div class="cover">
+            <img alt="专题《次元手作计划》封面：手作工具与彩色线圈的拼贴构图" loading="lazy" width="380" height="214"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='214' viewBox='0 0 380 214'%3E%3Crect width='380' height='214' fill='%2324202e'/%3E%3Cg fill='none' stroke-width='6'%3E%3Ccircle cx='90' cy='70' r='34' stroke='%23c6ff3d'/%3E%3Ccircle cx='150' cy='110' r='34' stroke='%23ff5f9e'/%3E%3Ccircle cx='110' cy='150' r='34' stroke='%237b61ff'/%3E%3C/g%3E%3Crect x='230' y='40' width='110' height='140' rx='8' fill='%232e2a3c' stroke='%2347405c'/%3E%3Cg fill='%23c6ff3d' opacity='.7'%3E%3Crect x='248' y='62' width='74' height='8' rx='4'/%3E%3Crect x='248' y='82' width='52' height='8' rx='4'/%3E%3Crect x='248' y='102' width='64' height='8' rx='4'/%3E%3C/g%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h3>次元手作计划 · 第二期</h3>
+            <p>面向定格、黏土、道具与服饰方向的手作创作者，提供拍摄设备、棚拍场地与官方流量扶持。入选者将获得 6 周陪伴式指导，作品在官网首页专题区展示。</p>
+          </div>
+          <div class="state">报名中<small>本期开放 12 组名额</small></div>
+        </article>
+
+        <article class="topic">
+          <div class="cover">
+            <img alt="专题《春季共创挑战》封面：分格画面组成的春日色彩拼贴" loading="lazy" width="380" height="214"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='214' viewBox='0 0 380 214'%3E%3Crect width='380' height='214' fill='%23e9f2e0'/%3E%3Cg%3E%3Crect x='20' y='20' width='100' height='80' rx='8' fill='%238fd18a'/%3E%3Crect x='132' y='20' width='100' height='80' rx='8' fill='%23ffd66b'/%3E%3Crect x='244' y='20' width='116' height='80' rx='8' fill='%23f2a0c0'/%3E%3Crect x='20' y='112' width='160' height='82' rx='8' fill='%237b61ff' opacity='.8'/%3E%3Crect x='192' y='112' width='168' height='82' rx='8' fill='%2338c8b0' opacity='.85'/%3E%3C/g%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h3>春季共创挑战：一镜到底的 30 秒</h3>
+            <p>用一个连续镜头讲一个完整的小故事。不限形式、不限工具，评审关注叙事清晰度与影像完成度。投稿截止 5 月 20 日，获奖名单将在官网与社区同步公布。</p>
+          </div>
+          <div class="state">征稿中<small>已收到 1,284 份投稿</small></div>
+        </article>
+
+        <article class="topic">
+          <div class="cover">
+            <img alt="专题《创作者访谈录》封面：两把椅子与录音设备构成的对话场景" loading="lazy" width="380" height="214"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='214' viewBox='0 0 380 214'%3E%3Crect width='380' height='214' fill='%23211d2b'/%3E%3Ccircle cx='190' cy='107' r='88' fill='none' stroke='%233b344d'/%3E%3Cg fill='%23ff5f9e'%3E%3Crect x='96' y='86' width='34' height='44' rx='8'/%3E%3Crect x='250' y='86' width='34' height='44' rx='8'/%3E%3C/g%3E%3Cg stroke='%23c6ff3d' stroke-width='3' fill='none'%3E%3Cpath d='M150 122h80M150 100h80'/%3E%3C/g%3E%3Ccircle cx='190' cy='152' r='20' fill='%237b61ff'/%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h3>创作者访谈录 · 第二季</h3>
+            <p>每期走进一位创作者的工作现场，聊作品之外的日常、收入结构与选择。第二季已更新 8 期，累计阅读 42 万次。</p>
+          </div>
+          <div class="state">更新至第 8 期<small>每周四更新</small></div>
+        </article>
+
+        <article class="topic">
+          <div class="cover">
+            <img alt="专题《同好线下放映夜》封面：小型放映厅的座椅与银幕光斑" loading="lazy" width="380" height="214"
+              src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='380' height='214' viewBox='0 0 380 214'%3E%3Crect width='380' height='214' fill='%23151a26'/%3E%3Crect x='60' y='30' width='260' height='110' rx='6' fill='%23dfe6ff' opacity='.14'/%3E%3Crect x='60' y='30' width='260' height='110' rx='6' fill='none' stroke='%233d4664'/%3E%3Cg fill='%232a3247'%3E%3Crect x='40' y='156' width='60' height='42' rx='8'/%3E%3Crect x='112' y='156' width='60' height='42' rx='8'/%3E%3Crect x='184' y='156' width='60' height='42' rx='8'/%3E%3Crect x='256' y='156' width='60' height='42' rx='8'/%3E%3C/g%3E%3Ccircle cx='190' cy='85' r='26' fill='%23c6ff3d' opacity='.5'/%3E%3C/svg%3E">
+          </div>
+          <div>
+            <h3>同好放映夜 · 城市巡回</h3>
+            <p>把屏幕里的作品搬到线下。已走过 9 座城市，累计 26 场放映，包含片后交流与创作者连线环节，报名免费、名额有限。</p>
+          </div>
+          <div class="state">报名中<small>下一站：成都 · 6 月 8 日</small></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section class="block" id="creators">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>创作者 <em>／ 值得信赖的原创力量</em></h2>
+          <p>B次元与各领域创作者长期合作，提供版权保护、收益分成与专业指导，让内容生态持续生长。</p>
+        </div>
+      </div>
+      <div class="creators">
+        <article class="creator">
+          <div class="big-ava" style="background:linear-gradient(140deg,#c6ff3d,#8fd18a)">南</div>
+          <h3>南枝工作室</h3>
+          <div class="field">原创动画 · 分镜</div>
+          <p>一支 6 人小队，专注短篇叙事动画。代表作《第十四帧》，习惯把废稿贴满整面墙。</p>
+          <div class="nums"><span><b>86</b>作品</span><span><b>12.4万</b>粉丝</span></div>
+          <button class="btn btn-ghost btn-sm" type="button" data-creator="南枝工作室｜原创动画方向签约创作者，代表作品《第十四帧》，擅长以细节推进叙事，长期在官网分享分镜与合成流程。">查看档案</button>
+        </article>
+
+        <article class="creator">
+          <div class="big-ava" style="background:linear-gradient(140deg,#ffb36b,#ff7e5f)">纸</div>
+          <h3>纸片工坊</h3>
+          <div class="field">手作定格 · 场景</div>
+          <p>用回收纸板与灯光搭建微缩世界，一个镜头平均要拍 320 次，喜欢自然光与旧纹理。</p>
+          <div class="nums"><span><b>142</b>作品</span><span><b>9.8万</b>粉丝</span></div>
+          <button class="btn btn-ghost btn-sm" type="button" data-creator="纸片工坊｜定格手作方向创作者，专注于纸板微缩场景与逐帧拍摄，作品曾入选官网年度精选。">查看档案</button>
+        </article>
+
+        <article class="creator">
+          <div class="big-ava" style="background:linear-gradient(140deg,#a9b7d8,#7b61ff)">雾</div>
+          <h3>雾岛摄影组</h3>
+          <div class="field">COS 影像 · 布光</div>
+          <p>三人摄影小队，偏爱雨夜与逆光。擅长用最小设备完成风格化拍摄，作品多含布光复盘。</p>
+          <div class="nums"><span><b>67</b>作品</span><span><b>7.2万</b>粉丝</span></div>
+          <button class="btn btn-ghost btn-sm" type="button" data-creator="雾岛摄影组｜COS 影像方向创作者，擅长小型灯具的极致布光，长期在官网发布拍摄手记与参数拆解。">查看档案</button>
+        </article>
+
+        <article class="creator">
+          <div class="big-ava" style="background:linear-gradient(140deg,#38e0c6,#38c8b0)">声</div>
+          <h3>白噪岛声音组</h3>
+          <div class="field">同人音乐 · 配音</div>
+          <p>从卧室录音起步的 12 人声音团队，参与多部原创动画配乐与角色配音，注重版权规范。</p>
+          <div class="nums"><span><b>54</b>作品</span><span><b>15.6万</b>粉丝</span></div>
+          <button class="btn btn-ghost btn-sm" type="button" data-creator="白噪岛声音组｜同人音乐与配音方向创作者，为多部站内原创动画完成配乐，官网可查阅授权与合作说明。">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 随笔 + 作品墙 -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>随笔与影像墙 <em>／ 真实的创作日常</em></h2>
+          <p>作品之外，创作者也在写一些不必配视频的话。这些文字与影像共同构成了 B次元社区的温度。</p>
+        </div>
+      </div>
+
+      <div class="essay-grid" style="margin-bottom:34px">
+        <article class="essay">
+          <span class="q" aria-hidden="true">“</span>
+          <h3>我们为什么坚持手绘分镜</h3>
+          <p>软件越来越快，但纸面上的第一笔仍然最诚实。你不知道怎么摆机位的时候，就在纸上把人物画小一点，再画小一点，构图的问题常常自己就浮出来了。这半年我们改了 47 版分镜，最后留下的那版，和第一版几乎一样。</p>
+          <div class="by">南枝工作室 · 创作手记</div>
+        </article>
+        <article class="essay">
+          <span class="q" aria-hidden="true">“</span>
+          <h3>拍定格的人，先学会和时间做朋友</h3>
+          <p>一个 3 秒的转身，我们拍了两天。中途灯架倒了一次，重新对光用了三个小时。但成片里那 3 秒真的会呼吸，这就够了。如果你也想试试，先准备一张舒服的椅子，再准备足够的耐心。</p>
+          <div class="by">纸片工坊 · 现场随笔</div>
+        </article>
+      </div>
+
+      <div class="wall">
+        <figure class="w2">
+          <img alt="作品墙大图：手绘动画角色的多角度转面设定稿" loading="lazy" width="800" height="800"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Crect width='800' height='800' fill='%23f4efe5'/%3E%3Cg stroke='%23cfc5b0' stroke-width='2'%3E%3Cpath d='M400 0v800M0 400h800'/%3E%3C/g%3E%3Cg fill='none' stroke='%232b2620' stroke-width='5' stroke-linecap='round'%3E%3Ccircle cx='200' cy='210' r='62'/%3E%3Cpath d='M200 272v120M160 320h80M200 392l-34 62M200 392l34 62'/%3E%3Ccircle cx='600' cy='210' r='62'/%3E%3Cpath d='M600 272v120M560 320h80M600 392l-34 62M600 392l34 62'/%3E%3Ccircle cx='200' cy='610' r='62'/%3E%3Cpath d='M200 672v-70M160 640h80M200 602l-34-52M200 602l34-52'/%3E%3Ccircle cx='600' cy='610' r='62'/%3E%3Cpath d='M600 672v-70M560 640h80M600 602l-34-52M600 602l34-52'/%3E%3C/g%3E%3Cg fill='%237b61ff' opacity='.7'%3E%3Crect x='120' y='746' width='120' height='10' rx='5'/%3E%3C/g%3E%3C/svg%3E">
+          <figcaption>角色转面设定稿 · 南枝工作室</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：黏土定格场景中的微型街道与路灯光晕" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f0dcc2'/%3E%3Crect x='0' y='300' width='400' height='100' fill='%23d8bd9a'/%3E%3Crect x='60' y='180' width='60' height='120' fill='%23c8a880'/%3E%3Crect x='150' y='220' width='44' height='80' fill='%23b89970'/%3E%3Crect x='290' y='190' width='52' height='110' fill='%23c8a880'/%3E%3Ccircle cx='250' cy='120' r='30' fill='%23fff0b8' opacity='.9'/%3E%3Ccircle cx='250' cy='120' r='58' fill='%23ffdf8a' opacity='.28'/%3E%3Cpath d='M250 150v150' stroke='%237c6650' stroke-width='6'/%3E%3C/svg%3E">
+          <figcaption>微缩街道路灯 · 纸片工坊</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：雨夜COS外景中的冷色光斑与湿润地面反光" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23101822'/%3E%3Cg stroke='%235f7fbf' stroke-width='2' opacity='.55'%3E%3Cpath d='M40 40l20 60M120 20l16 48M220 60l14 42M320 30l18 54M80 160l16 48M280 180l16 48'/%3E%3C/g%3E%3Cellipse cx='200' cy='330' rx='150' ry='42' fill='%232b4a6e' opacity='.6'/%3E%3Ccircle cx='170' cy='190' r='36' fill='%23b9c6e8' opacity='.85'/%3E%3Cpath d='M118 340c0-56 24-96 52-96s52 40 52 96z' fill='%23495a80'/%3E%3Ccircle cx='300' cy='150' r='8' fill='%23c6ff3d'/%3E%3C/svg%3E">
+          <figcaption>雨夜外景测试 · 雾岛摄影组</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：同人音乐录音界面与跳动的音波条" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23151f2a'/%3E%3Cg fill='%2338e0c6' opacity='.85'%3E%3Crect x='40' y='180' width='10' height='40' rx='5'/%3E%3Crect x='62' y='150' width='10' height='100' rx='5'/%3E%3Crect x='84' y='120' width='10' height='160' rx='5'/%3E%3Crect x='106' y='168' width='10' height='64' rx='5'/%3E%3Crect x='128' y='96' width='10' height='208' rx='5'/%3E%3Crect x='150' y='140' width='10' height='120' rx='5'/%3E%3Crect x='172' y='176' width='10' height='48' rx='5'/%3E%3Crect x='194' y='110' width='10' height='180' rx='5'/%3E%3Crect x='216' y='158' width='10' height='84' rx='5'/%3E%3Crect x='238' y='132' width='10' height='136' rx='5'/%3E%3Crect x='260' y='186' width='10' height='28' rx='5'/%3E%3Crect x='282' y='104' width='10' height='192' rx='5'/%3E%3Crect x='304' y='148' width='10' height='104' rx='5'/%3E%3Crect x='326' y='172' width='10' height='56' rx='5'/%3E%3C/g%3E%3Ccircle cx='200' cy='352' r='12' fill='%23c6ff3d'/%3E%3C/svg%3E">
+          <figcaption>配乐分轨 · 白噪岛声音组</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：道具盔甲局部的皮革与铆钉特写" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23e6d9c6'/%3E%3Cpath d='M60 120h280v180H60z' fill='%238d5a3c'/%3E%3Cpath d='M60 120h280v40H60z' fill='%23a86b45'/%3E%3Cg fill='%23d8c9ae'%3E%3Ccircle cx='100' cy='200' r='9'/%3E%3Ccircle cx='160' cy='200' r='9'/%3E%3Ccircle cx='220' cy='200' r='9'/%3E%3Ccircle cx='280' cy='200' r='9'/%3E%3C/g%3E%3Cpath d='M60 240h280' stroke='%236b4229' stroke-width='4' stroke-dasharray='10 8'/%3E%3C/svg%3E">
+          <figcaption>盔甲缝线细节 · 锻造台小组</figcaption>
+        </figure>
+        <figure class="w2">
+          <img alt="作品墙大图：动画短片中的城市天际线与上升的霓虹光带" loading="lazy" width="800" height="800"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='800' viewBox='0 0 800 800'%3E%3Cdefs%3E%3ClinearGradient id='w1' x1='0' y1='1' x2='0' y2='0'%3E%3Cstop offset='0' stop-color='%230d1424'/%3E%3Cstop offset='1' stop-color='%2321324f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='800' fill='url(%23w1)'/%3E%3Cg fill='%23142033'%3E%3Crect x='30' y='420' width='110' height='380'/%3E%3Crect x='160' y='340' width='90' height='460'/%3E%3Crect x='270' y='460' width='130' height='340'/%3E%3Crect x='420' y='300' width='80' height='500'/%3E%3Crect x='520' y='420' width='120' height='380'/%3E%3Crect x='660' y='360' width='110' height='440'/%3E%3C/g%3E%3Cg fill='%23c6ff3d' opacity='.75'%3E%3Crect x='52' y='450' width='14' height='8'/%3E%3Crect x='52' y='480' width='14' height='8'/%3E%3Crect x='182' y='370' width='14' height='8'/%3E%3Crect x='182' y='400' width='14' height='8'/%3E%3Crect x='442' y='330' width='14' height='8'/%3E%3Crect x='682' y='390' width='14' height='8'/%3E%3C/g%3E%3Cg fill='%23ff5f9e' opacity='.8'%3E%3Crect x='300' y='500' width='12' height='8'/%3E%3Crect x='300' y='530' width='12' height='8'/%3E%3Crect x='550' y='450' width='12' height='8'/%3E%3C/g%3E%3Cpath d='M0 700c160-40 260 20 400-30s260-50 400 0' fill='none' stroke='%237b61ff' stroke-width='4' opacity='.7'/%3E%3Ccircle cx='640' cy='180' r='54' fill='%23ffd66b' opacity='.55'/%3E%3C/svg%3E">
+          <figcaption>城市天际线概念图 · 拾光绘影</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：分镜课课堂上的手绘镜头格子与铅笔" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%23f6f1e6'/%3E%3Cg stroke='%23c9c0ad' stroke-width='2' fill='none'%3E%3Crect x='40' y='50' width='140' height='90'/%3E%3Crect x='200' y='50' width='140' height='90'/%3E%3Crect x='40' y='160' width='140' height='90'/%3E%3Crect x='200' y='160' width='140' height='90'/%3E%3C/g%3E%3Cg stroke='%23453a33' stroke-width='3' fill='none' stroke-linecap='round'%3E%3Cpath d='M60 120c20-30 34 10 50-16s34-6 50 4'/%3E%3Cpath d='M220 120l40-40 40 40-40 40z'/%3E%3Cpath d='M60 230h90M60 210h60'/%3E%3Cpath d='M240 200c30 0 30 40 60 40'/%3E%3C/g%3E%3Crect x='40' y='290' width='160' height='9' rx='4' fill='%23d8cfba'/%3E%3C/svg%3E">
+          <figcaption>分镜课堂练习 · 栗子分镜课</figcaption>
+        </figure>
+        <figure class="w1">
+          <img alt="作品墙图：线下放映夜银幕前的观众剪影与光柱" loading="lazy" width="400" height="400"
+            src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Crect width='400' height='400' fill='%230f131c'/%3E%3Crect x='70' y='60' width='260' height='140' rx='6' fill='%23dfe6ff' opacity='.18'/%3E%3Cpath d='M70 200l-40 200h340L330 200z' fill='%23dfe6ff' opacity='.07'/%3E%3Cg fill='%23232b3c'%3E%3Ccircle cx='110' cy='300' r='22'/%3E%3Crect x='86' y='322' width='48' height='78' rx='14'/%3E%3Ccircle cx='200' cy='310' r='22'/%3E%3Crect x='176' y='332' width='48' height='68' rx='14'/%3E%3Ccircle cx='290' cy='300' r='22'/%3E%3Crect x='266' y='322' width='48' height='78' rx='14'/%3E%3C/g%3E%3Ccircle cx='200' cy='120' r='26' fill='%23c6ff3d' opacity='.45'/%3E%3C/svg%3E">
+          <figcaption>放映夜观众席 · 城市巡回</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 评价 + 榜单 -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>社区口碑 <em>／ 用户怎么说</em></h2>
+          <p>来自创作者、观众与合作伙伴的真实反馈，是我们持续运营的动力，也是 B次元最看重的口碑资产。</p>
+        </div>
+      </div>
+
+      <div class="reviews" style="margin-bottom:40px">
+        <article class="review">
+          <span class="stars">★★★★★</span>
+          <p>在这里投稿大半年，最直观的感受是反馈质量高。评论区真的有人认真讨论分镜，而不是刷两句就走。对一个想做长篇的人来说，这很重要。</p>
+          <div class="who"><span class="avatar" style="background:#c6ff3d">阿</span>阿澈 · 原创动画创作者</div>
+        </article>
+        <article class="review">
+          <span class="stars">★★★★★</span>
+          <p>手作专题给了我第一个正式的展示位。官方还帮我们对接了拍摄场地，这种支持力度在同类社区里不多见。希望手作计划能一直办下去。</p>
+          <div class="who"><span class="avatar" style="background:#ffb36b">橙</span>橙子皮 · 定格手作</div>
+        </article>
+        <article class="review">
+          <span class="stars">★★★★☆</span>
+          <p>作为观众，我最喜欢这里的搜索和分类，能按教程、访谈、幕后筛，找干货很快。唯一的小建议是希望增加收藏夹分组功能。</p>
+          <div class="who"><span class="avatar" style="background:#a9b7d8">北</span>北窗 · 社区用户</div>
+        </article>
+        <article class="review">
+          <span class="stars">★★★★★</span>
+          <p>我们品牌和 B次元合作过一次共创企划，从策划到上线沟通都很专业，最后成片质感远超预期，数据也很扎实。值得信赖的合作方。</p>
+          <div class="who"><span class="avatar" style="background:#7b61ff">合</span>合作方 · 某文创品牌市场部</div>
+        </article>
+        <article class="review">
+          <span class="stars">★★★★★</span>
+          <p>从第一期手作计划就在关注，看着一批新人从这里被看见。这种缓慢但真实的成长，比热闹的榜单更让我愿意留下来。</p>
+          <div class="who"><span class="avatar" style="background:#38e0c6">林</span>林间 · 长期社区成员</div>
+        </article>
+        <article class="review">
+          <span class="stars">★★★★☆</span>
+          <p>教程区的分镜课帮我省了很多弯路，讲的都是能上手的东西。如果能增加一点进阶的合成内容就更完整了，期待更新。</p>
+          <div class="who"><span class="avatar" style="background:#ff5f9e">小</span>小野 · 影像学习者</div>
+        </article>
+      </div>
+
+      <div class="rank-grid">
+        <div class="rank">
+          <h3><i></i>热度榜 · 本周</h3>
+          <ol>
+            <li><span class="no">1</span>《霓虹第七街》<span>8.8k</span></li>
+            <li><span class="no">2</span>《第十四帧》<span>7.6k</span></li>
+            <li><span class="no">3</span>一支动画 MV 的 9 版草案<span>7.2k</span></li>
+            <li><span class="no">4</span>COS 后期必修<span>6.0k</span></li>
+            <li><span class="no">5</span>分镜入门 9 个格子<span>5.2k</span></li>
+          </ol>
+        </div>
+        <div class="rank">
+          <h3><i></i>新人榜 · 本月</h3>
+          <ol>
+            <li><span class="no">1</span>拾光绘影<span>新作 4</span></li>
+            <li><span class="no">2</span>灰阶后期室<span>新作 6</span></li>
+            <li><span class="no">3</span>锻造台小组<span>新作 3</span></li>
+            <li><span class="no">4</span>贰号画室<span>新作 5</span></li>
+            <li><span class="no">5</span>剪影笔记<span>新作 8</span></li>
+          </ol>
+        </div>
+        <div class="rank">
+          <h3><i></i>口碑榜 · 长期</h3>
+          <ol>
+            <li><span class="no">1</span>纸片工坊<span>4.9</span></li>
+            <li><span class="no">2</span>白噪岛声音组<span>4.9</span></li>
+            <li><span class="no">3</span>南枝工作室<span>4.8</span></li>
+            <li><span class="no">4</span>栗子分镜课<span>4.8</span></li>
+            <li><span class="no">5</span>雾岛摄影组<span>4.7</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作灵感 + 投稿指南 -->
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>创作灵感与投稿指南</h2>
+          <p>无论你是第一次拿起相机，还是已经拍了几年，这里有一些可以直接用上的思路与规则。</p>
+        </div>
+      </div>
+      <div class="inspire">
+        <div class="inspire-panel">
+          <h3>本期灵感清单 · 六个可以立刻开拍的方向</h3>
+          <p>由编辑部与签约创作者共同整理，围绕二次元影像的表达边界，供你挑选、改造或完全推翻。</p>
+          <div class="idea-list">
+            <div class="idea"><b>01</b>用一个固定机位，记录一件道具从材料到成品的完整过程，只保留最关键的 30 秒。</div>
+            <div class="idea"><b>02</b>给你的原创角色写一份「一天的时间表」，再挑其中两个小时拍成分镜。</div>
+            <div class="idea"><b>03</b>用声音先行：先录一段环境声，再让画面去追这段声音的情绪。</div>
+            <div class="idea"><b>04</b>把一段同人音乐拆成三个段落，用三种不同的画风分别呈现。</div>
+            <div class="idea"><b>05</b>拍一支「失败合集」，讲讲那些没做成的镜头，往往比成片更有共鸣。</div>
+            <div class="idea"><b>06</b>找一位同好互换题材：你拍他的故事，他拍你的故事，最后合并成一支双视角短片。</div>
+          </div>
+        </div>
+        <div class="guide">
+          <div class="guide-item">
+            <span class="num">1</span>
+            <div><h3>上传与格式</h3><p>支持 1080P 及以上高清文件，建议 16:9 或 9:16，单文件不超过 4GB，投稿前请确认素材授权。</p></div>
+          </div>
+          <div class="guide-item">
+            <span class="num">2</span>
+            <div><h3>原创与正版</h3><p>平台仅接受原创或已获授权的作品，使用第三方音乐、字体与素材需提供授权说明，官方提供正版素材清单。</p></div>
+          </div>
+          <div class="guide-item">
+            <span class="num">3</span>
+            <div><h3>审核与推荐</h3><p>常规审核 1 至 3 个工作日，通过后可参与每周焦点影像评选，入选作品将在官网焦点区展示。</p></div>
+          </div>
+          <div class="guide-item">
+            <span class="num">4</span>
+            <div><h3>收益与版权</h3><p>创作者保留作品版权，平台提供分成、打赏与企划合作三种收益路径，具体规则可在帮助中心查阅。</p></div>
+          </div>
+          <button class="btn btn-primary" type="button" data-modal="submit" style="justify-content:center">立即提交作品</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 + 合作 -->
+  <section class="block" id="news">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>企业动态 <em>／ 官方发布</em></h2>
+          <p>关于 B次元品牌、平台规则与共创企划的最新消息，均在此同步发布。</p>
+        </div>
+      </div>
+
+      <div class="news-list" style="margin-bottom:40px">
+        <article class="news-item">
+          <time datetime="2025-04-18">2025-04-18</time>
+          <div><h3>「次元手作计划」第二期正式开放报名</h3><p>本期新增棚拍设备支持与 6 周陪伴式指导，面向定格、黏土、道具与服饰方向开放 12 组名额。</p></div>
+          <span class="go">查看详情 →</span>
+        </article>
+        <article class="news-item">
+          <time datetime="2025-04-10">2025-04-10</time>
+          <div><h3>平台内容审核细则更新，强化原创与授权说明</h3><p>新增正版素材清单与授权模板下载，进一步降低创作者的合规成本。</p></div>
+          <span class="go">查看详情 →</span>
+        </article>
+        <article class="news-item">
+          <time datetime="2025-03-29">2025-03-29</time>
+          <div><h3>春季共创挑战启动，总奖金池与展映名额公布</h3><p>征稿期至 5 月 20 日，入选作品将参与线下巡回放映并获得官方推荐位。</p></div>
+          <span class="go">查看详情 →</span>
+        </article>
+        <article class="news-item">
+          <time datetime="2025-03-12">2025-03-12</time>
+          <div><h3>B次元与三家文创品牌达成年度内容合作</h3><p>合作将围绕原创角色商业化与联名影像企划展开，首个联名系列预计夏季上线。</p></div>
+          <span class="go">查看详情 →</span>
+        </article>
+        <article class="news-item">
+          <time datetime="2025-02-26">2025-02-26</time>
+          <div><h3>创作者收益分成方案优化，结算周期缩短至月度</h3><p>同时上线收益明细页，创作者可查看每一笔来源与结算状态。</p></div>
+          <span class="go">查看详情 →</span>
+        </article>
+      </div>
+
+      <h3 style="font-size:17px;margin-bottom:16px;color:#c9cfe4">内容合作与生态伙伴</h3>
+      <div class="partners">
+        <div class="partner">星轨文创</div>
+        <div class="partner">纸间事务所</div>
+        <div class="partner">北纬动画节</div>
+        <div class="partner">格子出版社</div>
+        <div class="partner">回声录音棚</div>
+        <div class="partner">城市放映联盟</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ + 联系 -->
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <h2>帮助中心</h2>
+          <p>关于投稿、审核、版权与合作的高频问题。如果没有找到答案，欢迎通过下方方式联系我们。</p>
+        </div>
+      </div>
+
+      <div class="faq" style="margin-bottom:56px">
+        <details open>
+          <summary>投稿需要什么条件？个人创作者可以参加吗？</summary>
+          <div class="ans">任何个人创作者都可以投稿，没有粉丝门槛。我们更看重作品完成度与原创性，而不是账号体量。首次投稿建议先上传一支 1 至 3 分钟的完整短片，并附上简短的创作说明，审核通过率会更高。</div>
+        </details>
+        <details>
+          <summary>平台对原创和正版的要求具体是怎样的？</summary>
+          <div class="ans">作品需为本人原创，或已取得完整授权。使用第三方音乐、字体、音效与图像素材时，请在投稿页填写来源与授权方式。官方在帮助中心提供了正版素材清单与授权模板，可免费下载参考。涉及改编同人内容的作品，请遵守原作方的二次创作规范。</div>
+        </details>
+        <details>
+          <summary>审核一般需要多久？没通过会告知原因吗？</summary>
+          <div class="ans">常规审核为 1 至 3 个工作日，节假日前后的投稿量较大，可能略有延迟。未通过的作品会在站内信中说明具体原因，例如素材授权不明、画质不足或信息填写不完整，修改后可重新提交，不影响后续投稿。</div>
+        </details>
+        <details>
+          <summary>创作者如何获得收益？结算周期是多久？</summary>
+          <div class="ans">目前提供内容分成、用户打赏与企划合作三种路径。签约创作者按月结算，普通投稿作者在满足起结金额后同样可以申请提现。所有收益明细可在创作者后台查看，每一笔来源与状态都有记录。</div>
+        </details>
+        <details>
+          <summary>我的作品版权归谁？平台会二次使用吗？</summary>
+          <div class="ans">作品版权始终归创作者所有。平台仅在获得你明确授权的前提下，将作品用于官网推荐、专题展示或线下放映等场景，并会提前沟通使用范围与周期。任何商业用途都会单独签署授权协议。</div>
+        </details>
+        <details>
+          <summary>如何参加共创挑战与线下放映活动？</summary>
+          <div class="ans">每期企划会在官网专题区与公告条同步开放报名入口，按要求提交作品或报名信息即可。线下放映采取报名审核制，名额有限，入选后会收到站内信与短信通知。活动全程免费，不收取任何费用。</div>
+        </details>
+        <details>
+          <summary>品牌或机构想合作，应该联系谁？</summary>
+          <div class="ans">可通过官网底部的合作邮箱提交需求简述，包括合作类型、时间预期与预算区间。我们通常在 3 个工作日内回复，并安排对应的合作负责人对接。也欢迎内容平台、动画节展与文创品牌洽谈联合企划。</div>
+        </details>
+      </div>
+
+      <div class="contact" id="contact">
+        <div class="contact-card">
+          <h2>与 B次元 一起，把热爱做长久</h2>
+          <p>无论是投稿、合作、反馈还是单纯想说句话，我们都愿意听。B次元官方网站由一支不到 40 人的团队持续运营，每一条留言都会有同事认真读完。</p>
+          <div class="info-line"><span>合作邮箱</span><span>brand@bciyuan-official.cn</span></div>
+          <div class="info-line"><span>投稿咨询</span><span>creator@bciyuan-official.cn</span></div>
+          <div class="info-line"><span>媒体联络</span><span>press@bciyuan-official.cn</span></div>
+          <div class="info-line"><span>办公地址</span><span>上海市杨浦区创智天地 7 号楼 12 层</span></div>
+          <div class="info-line"><span>工作时间</span><span>周一至周五 10:00 - 19:00</span></div>
+          <div class="contact-actions">
+            <button class="btn btn-primary" type="button" data-modal="submit">提交投稿</button>
+            <button class="btn btn-ghost" type="button" data-modal="feedback">问题反馈</button>
+            <button class="btn btn-ghost" type="button" data-modal="share">分享给同好</button>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h2 style="font-size:21px">关于我们</h2>
+          <p style="margin-bottom:14px">B次元是一家专注于二次元原创影像的内容品牌，以官方网站与社区为核心阵地，为创作者提供展示、成长与收益的完整通道。我们坚持原创、正版与品质，也坚持用户至上的产品观。</p>
+          <p style="margin-bottom:14px">平台设有内容评审团与创作者顾问团，规则公开透明；每年发布内容生态报告，与社会各界分享垂直领域的观察与思考。我们相信，一个包容而专业的社区，能让更多人被看见。</p>
+          <p>深耕六年，B次元已成为众多二次元创作者的用户首选平台之一。未来我们仍会把大部分精力放在一件小事上：让好作品被认真对待。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#top" aria-label="返回 B次元官网首页">
+          <span class="mark" aria-hidden="true"></span>
+          <span class="txt"><strong>B次元</strong><span>ORIGINAL VIDEO</span></span>
+        </a>
+        <p>B次元官方网站 · 二次元原创影像社区。我们持续运营高品质内容生态，与创作者、同好和合作伙伴一起，让每一帧热爱都有回声。</p>
+      </div>
+      <div class="foot-col">
+        <h4>内容</h4>
+        <a href="#focus">焦点影像</a>
+        <a href="#feed">热门内容</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者矩阵</a>
+      </div>
+      <div class="foot-col">
+        <h4>关于</h4>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系我们</a>
+        <a href="#top">品牌故事</a>
+      </div>
+      <div class="foot-col">
+        <h4>参与</h4>
+        <a href="#" data-modal="submit">我要投稿</a>
+        <a href="#" data-modal="feedback">问题反馈</a>
+        <a href="#" data-modal="share">分享官网</a>
+        <a href="#topics">共创挑战报名</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2019 - 2025 B次元 官方网站 · 版权所有 · 持续运营中</span>
+      <span>沪ICP备 0000000 号-1（占位） · 增值电信业务经营许可证（占位）</span>
+      <span>原创 · 正版 · 高清 · 专业</span>
+    </div>
+  </div>
+</footer>
+
+<button class="top-btn" id="topBtn" type="button" aria-label="回到顶部">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- 弹窗：评论 -->
+<div class="modal-mask" id="modal-comment">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="评论">
+    <button class="close" type="button" data-close aria-label="关闭">×</button>
+    <h3>社区评论</h3>
+    <p class="sub">来自 B次元社区的讨论，全部为真实用户发布。</p>
+    <div class="idea-list">
+      <div class="idea"><b>用户</b>第十四帧反复看了三遍，光线变化的处理太细致了，尤其是窗边那一镜。</div>
+      <div class="idea"><b>用户</b>请问分镜表格模板在哪里能下载？想跟着练一练。</div>
+      <div class="idea"><b>用户</b>47 天做完 8 分钟真的不容易，团队配合的节奏感很强。</div>
+      <div class="idea"><b>作者</b>模板已放在官网教程区，搜索「分镜入门」即可找到，欢迎交流。</div>
+    </div>
+  </div>
+</div>
+
+<!-- 弹窗：投稿 -->
+<div class="modal-mask" id="modal-submit">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="投稿入口">
+    <button class="close" type="button" data-close aria-label="关闭">×</button>
+    <h3>提交作品 / 报名共创挑战</h3>
+    <p class="sub">填写基本信息，编辑部将在 3 个工作日内与你联系。</p>
+    <form id="submitForm">
+      <div class="form-row"><label for="fname">创作者昵称</label><input id="fname" type="text" placeholder="例如：南枝工作室" required></div>
+      <div class="form-row"><label for="ftype">作品方向</label>
+        <select id="ftype">
+          <option>原创动画</option><option>手作定格</option><option>COS 影像</option><option>同人音乐</option><option>教程与访谈</option>
+        </select>
+      </div>
+      <div class="form-row"><label for="fdesc">作品简述</label><textarea id="fdesc" placeholder="用两三句话介绍你的作品与创作过程"></textarea></div>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">提交</button>
+    </form>
+  </div>
+</div>
+
+<!-- 弹窗：反馈 -->
+<div class="modal-mask" id="modal-feedback">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="问题反馈">
+    <button class="close" type="button" data-close aria-label="关闭">×</button>
+    <h3>问题反馈</h3>
+    <p class="sub">遇到播放、投稿或社区问题，请告诉我们，我们会尽快处理。</p>
+    <form id="feedbackForm">
+      <div class="form-row"><label for="fkind">问题类型</label>
+        <select id="fkind"><option>内容播放异常</option><option>投稿审核相关</option><option>版权与举报</option><option>功能建议</option></select>
+      </div>
+      <div class="form-row"><label for="fmsg">详细描述</label><textarea id="fmsg" placeholder="请描述你遇到的问题或建议"></textarea></div>
+      <button class="btn btn-primary" type="submit" style="width:100%;justify-content:center">发送反馈</button>
+    </form>
+  </div>
+</div>
+
+<!-- 弹窗：分享 -->
+<div class="modal-mask" id="modal-share">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="分享">
+    <button class="close" type="button" data-close aria-label="关闭">×</button>
+    <h3>分享给同好</h3>
+    <p class="sub">把 B次元 官方网站与共创企划，分享给同样热爱二次元影像的朋友。</p>
+    <div class="share-row">
+      <button class="share-btn" type="button" data-share-to="微信"><i>💬</i>微信</button>
+      <button class="share-btn" type="button" data-share-to="微博"><i>🔥</i>微博</button>
+      <button class="share-btn" type="button" data-share-to="QQ"><i>🐧</i>QQ</button>
+      <button class="share-btn" type="button" id="copyLink"><i>🔗</i>复制链接</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = document.getElementById('burger');
+  var panel = document.getElementById('mobilePanel');
+  burger.addEventListener('click', function(){
+    var open = panel.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  panel.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      panel.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* 弹窗体系 */
+  function openModal(name){
+    var el = document.getElementById('modal-' + name);
+    if(el){ el.classList.add('open'); document.body.style.overflow='hidden'; }
+  }
+  function closeAll(){
+    document.querySelectorAll('.modal-mask.open').forEach(function(m){ m.classList.remove('open'); });
+    document.body.style.overflow='';
+  }
+  document.querySelectorAll('[data-modal]').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      openModal(btn.getAttribute('data-modal'));
+    });
+  });
+  document.querySelectorAll('[data-close]').forEach(function(btn){
+    btn.addEventListener('click', closeAll);
+  });
+  document.querySelectorAll('.modal-mask').forEach(function(mask){
+    mask.addEventListener('click', function(e){ if(e.target === mask) closeAll(); });
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeAll(); });
+
+  /* 点赞（+1 / -1） */
+  document.querySelectorAll('.act.like').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var raw = parseInt(btn.getAttribute('data-like'), 10) || 0;
+      var span = btn.querySelector('span');
+      var on = btn.classList.toggle('on');
+      var next = on ? raw + 1 : raw;
+      span.textContent = on ? next.toLocaleString() : raw.toLocaleString();
+      toast(on ? '已点赞，感谢你的回应' : '已取消点赞');
+    });
+  });
+
+  /* 收藏状态切换 */
+  document.querySelectorAll('.act.fav').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var on = btn.classList.toggle('on');
+      btn.textContent = on ? '★ 已收藏' : '☆ 收藏';
+      toast(on ? '已加入收藏夹' : '已取消收藏');
+    });
+  });
+
+  /* 分享 */
+  function doShare(title){
+    openModal('share');
+    toast('分享：' + title);
+  }
+  document.querySelectorAll('[data-share]').forEach(function(btn){
+    btn.addEventListener('click', function(){ doShare(btn.getAttribute('data-share')); });
+  });
+  document.querySelectorAll('[data-share-to]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      toast('已唤起 ' + btn.getAttribute('data-share-to') + ' 分享面板');
+    });
+  });
+  var copyLink = document.getElementById('copyLink');
+  if(copyLink){
+    copyLink.addEventListener('click', function(){
+      var text = 'B次元 · 二次元原创影像社区官方网站';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ toast('站点信息已复制，可粘贴分享'); })
+        .catch(function(){ toast('复制未成功，请手动分享'); });
+      }else{
+        toast('当前环境不支持自动复制，请手动分享');
+      }
+    });
+  }
+
+  /* 创作者档案 */
+  document.querySelectorAll('[data-creator]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var el = document.createElement('div');
+      el.className = 'toast show';
+      el.style.maxWidth = 'min(560px, 88vw)';
+      el.style.whiteSpace = 'normal';
+      el.style.textAlign = 'left';
+      el.style.lineHeight = '1.75';
+      el.textContent = btn.getAttribute('data-creator');
+      document.body.appendChild(el);
+      setTimeout(function(){ el.remove(); }, 4200);
+    });
+  });
+
+  /* 搜索反馈 */
+  var input = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var noResult = document.getElementById('noResult');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#feedGrid .card'));
+  function doSearch(){
+    var q = (input.value || '').trim().toLowerCase();
+    if(!q){ cards.forEach(function(c){ c.style.display=''; }); noResult.classList.remove('show'); toast('已恢复显示全部内容'); return; }
+    var hit = 0;
+    cards.forEach(function(c){
+      var text = (c.getAttribute('data-search') || '') + c.textContent.toLowerCase();
+      var match = text.toLowerCase().indexOf(q) > -1;
+      c.style.display = match ? '' : 'none';
+      if(match) hit++;
+    });
+    noResult.classList.toggle('show', hit === 0);
+    toast(hit ? '找到 ' + hit + ' 条相关内容' : '没有匹配内容，试试其他关键词');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  input.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doSearch(); } });
+
+  /* 分类筛选 */
+  document.querySelectorAll('#filterBar .chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      document.querySelectorAll('#filterBar .chip').forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var f = chip.getAttribute('data-filter');
+      var hit = 0;
+      cards.forEach(function(c){
+        var match = (f === 'all') || (c.getAttribute('data-cat') === f);
+        c.style.display = match ? '' : 'none';
+        if(match) hit++;
+      });
+      noResult.classList.toggle('show', hit === 0);
+      toast('已筛选：' + chip.textContent.trim());
+    });
+  });
+
+  /* 表单提交 */
+  var submitForm = document.getElementById('submitForm');
+  if(submitForm){
+    submitForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      closeAll();
+      submitForm.reset();
+      toast('投稿信息已提交，编辑部将在 3 个工作日内联系你');
+    });
+  }
+  var feedbackForm = document.getElementById('feedbackForm');
+  if(feedbackForm){
+    feedbackForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      closeAll();
+      feedbackForm.reset();
+      toast('反馈已收到，感谢你帮助 B次元 变得更好');
+    });
+  }
+
+  /* 回到顶部 */
+  var topBtn = document.getElementById('topBtn');
+  window.addEventListener('scroll', function(){
+    topBtn.classList.toggle('show', window.scrollY > 520);
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 数据滚动（轻量） */
+  var counted = false;
+  var stats = document.querySelectorAll('.stat b[data-count]');
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    stats.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var suffix = el.textContent.indexOf('万') > -1;
+      var start = 0, dur = 900, t0 = null;
+      function step(ts){
+        if(!t0) t0 = ts;
+        var p = Math.min((ts - t0)/dur, 1);
+        var val = Math.floor(start + (target - start) * (1 - Math.pow(1-p, 3)));
+        if(suffix){ el.textContent = (val/10000).toFixed(1) + '万'; }
+        else { el.textContent = val >= 1000 ? val.toLocaleString() : val; }
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window && stats.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) runCount(); });
+    }, {threshold:.4});
+    stats.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
+</body>
+            </html>
