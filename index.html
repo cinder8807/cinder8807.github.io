@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>绿色椅子在线 - 绿色生活影像社区 - 让每一次可持续被看见</title>
+<meta name="description" content="绿色椅子在线官方网站，聚焦绿色生活、环保手作与自然影像的原创视频社区，汇聚创作者与企业，共建高品质可持续内容生态。">
+<style>
+  :root{
+    --green-900:#173d2b;
+    --green-800:#1f4d36;
+    --green-700:#2b6b4a;
+    --green-600:#3a8460;
+    --green-500:#4e9e77;
+    --green-300:#a9d6bf;
+    --green-100:#e4f2ea;
+    --earth-700:#7a5b3c;
+    --earth-500:#a8845e;
+    --earth-200:#e6d8c6;
+    --sand:#f5f1e8;
+    --ink:#22302a;
+    --ink-soft:#4d5f56;
+    --white:#ffffff;
+    --shadow:0 14px 34px rgba(23,61,43,.12);
+    --shadow-sm:0 6px 18px rgba(23,61,43,.08);
+    --radius:18px;
+    --header-h:64px;
+    --notice-h:40px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + var(--notice-h) + 12px)}
+  body{
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+  .wrap{width:min(1180px,92vw);margin:0 auto}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+  /* ===== 公告条 + 页头 吸顶 ===== */
+  .topbar-stack{position:sticky;top:0;z-index:120}
+  .notice{
+    height:var(--notice-h);
+    background:linear-gradient(90deg,var(--green-800),var(--green-600) 60%,var(--earth-500));
+    color:#eaf6ef;
+    display:flex;align-items:center;
+    font-size:13.5px;overflow:hidden;
+  }
+  .notice .wrap{display:flex;align-items:center;gap:14px}
+  .notice-badge{
+    flex:0 0 auto;background:#f7c86b;color:#3d2a08;font-weight:700;
+    font-size:11.5px;letter-spacing:.5px;padding:1px 8px;border-radius:99px;
+  }
+  .notice-track{overflow:hidden;flex:1 1 auto;white-space:nowrap}
+  .notice-track span{display:inline-block;animation:noticeMove 26s linear infinite;padding-left:6px}
+  @keyframes noticeMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.notice-track span{animation:none}}
+  .notice a{text-decoration:underline;text-underline-offset:3px}
+
+  header.site-header{
+    height:var(--header-h);
+    background:rgba(245,241,232,.94);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(31,77,54,.12);
+  }
+  .header-inner{height:100%;display:flex;align-items:center;gap:26px}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--green-900);font-size:19px;letter-spacing:.5px;flex:0 0 auto}
+  .logo-mark{width:34px;height:34px;flex:0 0 auto}
+  .logo small{display:block;font-size:10.5px;font-weight:500;letter-spacing:2px;color:var(--green-600);line-height:1}
+  nav.main-nav{display:flex;gap:4px;margin-left:8px;flex:1 1 auto}
+  nav.main-nav a{
+    font-size:14.5px;color:var(--ink-soft);padding:8px 12px;border-radius:10px;
+    transition:background .2s,color .2s;white-space:nowrap;
+  }
+  nav.main-nav a:hover{background:var(--green-100);color:var(--green-800)}
+  .header-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+  .search-box{position:relative;display:flex;align-items:center}
+  .search-box input{
+    width:190px;padding:8px 12px 8px 34px;border-radius:99px;border:1px solid rgba(31,77,54,.22);
+    background:var(--white);font-size:13.5px;color:var(--ink);outline:none;transition:border-color .2s,box-shadow .2s,width .25s;
+  }
+  .search-box input:focus{border-color:var(--green-500);box-shadow:0 0 0 3px rgba(78,158,119,.18);width:230px}
+  .search-box svg{position:absolute;left:11px;width:15px;height:15px;stroke:var(--green-600);fill:none;stroke-width:2}
+  .search-tip{
+    position:absolute;top:calc(100% + 8px);right:0;width:270px;background:var(--white);
+    border-radius:12px;box-shadow:var(--shadow);padding:10px 12px;font-size:13px;color:var(--ink-soft);
+    display:none;z-index:60;border:1px solid rgba(31,77,54,.1);
+  }
+  .search-tip.show{display:block}
+  .search-tip b{color:var(--green-800)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    border-radius:99px;font-size:14px;font-weight:600;padding:9px 20px;
+    transition:transform .18s,box-shadow .18s,background .18s;white-space:nowrap;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--green-700);color:#f2fbf6;box-shadow:0 8px 20px rgba(43,107,74,.28)}
+  .btn-primary:hover{background:var(--green-800)}
+  .btn-ghost{border:1.5px solid var(--green-700);color:var(--green-800)}
+  .btn-ghost:hover{background:var(--green-100)}
+  .btn-light{background:var(--white);color:var(--green-800);box-shadow:var(--shadow-sm)}
+  .btn-light:hover{background:var(--green-100)}
+  .btn-sm{padding:6px 14px;font-size:13px}
+  .nav-toggle{display:none;width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;border:1px solid rgba(31,77,54,.2)}
+  .nav-toggle svg{width:20px;height:20px;stroke:var(--green-800);fill:none;stroke-width:2.2;stroke-linecap:round}
+
+  /* ===== 首屏 ===== */
+  .hero{padding:56px 0 40px;position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:auto -180px 0 auto;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,rgba(169,214,191,.55),rgba(169,214,191,0) 68%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center;position:relative}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;background:var(--green-100);color:var(--green-800);
+    font-size:12.5px;font-weight:700;letter-spacing:1px;padding:5px 14px;border-radius:99px;margin-bottom:18px;
+    border:1px solid rgba(43,107,74,.18);
+  }
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--green-600);display:inline-block}
+  h1{font-size:clamp(32px,4.6vw,52px);line-height:1.2;letter-spacing:-.5px;color:var(--green-900);font-weight:900}
+  h1 em{font-style:normal;color:var(--green-600);position:relative;white-space:nowrap}
+  h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:2px;height:10px;background:rgba(247,200,107,.6);z-index:-1;border-radius:3px;
+  }
+  .hero-sub{margin-top:14px;font-size:17px;color:var(--green-700);font-weight:600;letter-spacing:.4px}
+  .hero-desc{margin-top:16px;font-size:15px;color:var(--ink-soft);max-width:56ch}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+  .hero-stats{display:flex;gap:36px;margin-top:34px;flex-wrap:wrap}
+  .hero-stats div strong{display:block;font-size:26px;color:var(--green-800);letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+  .hero-stats div span{font-size:12.5px;color:var(--ink-soft);letter-spacing:.5px}
+
+  .hero-visual{position:relative}
+  .hero-main-cover{
+    border-radius:24px;overflow:hidden;box-shadow:var(--shadow);position:relative;aspect-ratio:16/10;background:var(--green-800);
+  }
+  .hero-main-cover img{width:100%;height:100%;object-fit:cover}
+  .hero-main-cover .tagline{
+    position:absolute;left:18px;bottom:16px;display:flex;gap:8px;flex-wrap:wrap;
+  }
+  .pill{
+    background:rgba(255,255,255,.92);color:var(--green-800);font-size:12px;font-weight:700;
+    padding:4px 11px;border-radius:99px;backdrop-filter:blur(4px);
+  }
+  .hero-float{
+    position:absolute;left:-26px;bottom:-24px;background:var(--white);border-radius:16px;
+    padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;max-width:280px;
+  }
+  .avatar{width:44px;height:44px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px;letter-spacing:0}
+  .hero-float p{font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .hero-float strong{display:block;font-size:14px;color:var(--green-800)}
+  .hero-mini{
+    position:absolute;right:-18px;top:-22px;background:var(--white);border-radius:14px;padding:10px 14px;
+    box-shadow:var(--shadow-sm);font-size:12.5px;color:var(--green-800);font-weight:700;display:flex;align-items:center;gap:8px;
+  }
+  .hero-mini .dot{width:8px;height:8px;border-radius:50%;background:#e8833a;animation:pulse 1.8s infinite}
+  @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.5}}
+
+  /* ===== 通用 section ===== */
+  section{padding:62px 0}
+  .section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:30px;flex-wrap:wrap}
+  .section-head .eyebrow{margin-bottom:12px}
+  h2{font-size:clamp(24px,3vw,32px);line-height:1.28;color:var(--green-900);font-weight:900;letter-spacing:-.4px}
+  h2 .accent{color:var(--green-600)}
+  .section-desc{margin-top:10px;font-size:14.5px;color:var(--ink-soft);max-width:62ch}
+  .section-link{font-size:14px;font-weight:700;color:var(--green-700);display:inline-flex;align-items:center;gap:6px;border-bottom:2px solid transparent;transition:gap .2s,border-color .2s}
+  .section-link:hover{gap:10px;border-color:var(--green-500)}
+
+  /* ===== 焦点内容 ===== */
+  .focus-grid{display:grid;grid-template-columns:1.35fr 1fr 1fr;gap:22px}
+  .video-card{
+    background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative;
+  }
+  .video-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .video-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:var(--green-800)}
+  .video-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .video-card:hover .video-thumb img{transform:scale(1.05)}
+  .play-badge{
+    position:absolute;inset:0;margin:auto;width:52px;height:52px;border-radius:50%;
+    background:rgba(255,255,255,.86);display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);transition:transform .2s,background .2s;
+  }
+  .play-badge svg{width:18px;height:18px;fill:var(--green-800);margin-left:3px}
+  .video-card:hover .play-badge{transform:scale(1.12);background:#fff}
+  .thumb-mask{position:absolute;inset:auto 0 0 0;height:58%;background:linear-gradient(to top,rgba(12,32,22,.72),rgba(12,32,22,0))}
+  .thumb-tags{position:absolute;left:12px;bottom:12px;display:flex;gap:6px;flex-wrap:wrap;z-index:2}
+  .thumb-tags span{background:rgba(255,255,255,.9);color:var(--green-800);font-size:11px;font-weight:700;padding:2px 9px;border-radius:99px}
+  .duration{position:absolute;right:10px;bottom:10px;background:rgba(0,0,0,.62);color:#fff;font-size:11.5px;padding:1px 7px;border-radius:5px;z-index:2;font-variant-numeric:tabular-nums}
+  .video-body{padding:15px 17px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .video-body h3{font-size:16px;line-height:1.45;color:var(--ink);font-weight:800}
+  .focus-grid .video-card.large .video-body h3{font-size:19px}
+  .video-body p{font-size:13.5px;color:var(--ink-soft);line-height:1.62}
+  .video-meta{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:6px;border-top:1px dashed rgba(31,77,54,.14);flex-wrap:wrap}
+  .author-mini{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-soft);font-weight:600}
+  .author-mini .avatar{width:26px;height:26px;font-size:11.5px}
+  .card-actions{display:flex;gap:4px;align-items:center}
+  .icon-btn{
+    display:inline-flex;align-items:center;gap:4px;font-size:12.5px;color:var(--ink-soft);
+    padding:4px 8px;border-radius:8px;transition:background .18s,color .18s;font-variant-numeric:tabular-nums;
+  }
+  .icon-btn:hover{background:var(--green-100);color:var(--green-800)}
+  .icon-btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.9;stroke-linejoin:round}
+  .icon-btn.liked{color:#d9534f}
+  .icon-btn.liked svg{fill:#d9534f;stroke:#d9534f}
+  .icon-btn.saved{color:var(--green-700)}
+  .icon-btn.saved svg{fill:var(--green-500);stroke:var(--green-700)}
+
+  /* ===== 专题 ===== */
+  .topics{background:linear-gradient(180deg,var(--green-100),rgba(228,242,234,0))}
+  .topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .topic-card{
+    background:var(--white);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow-sm);
+    border-top:4px solid var(--green-500);display:flex;flex-direction:column;gap:10px;transition:transform .2s,box-shadow .2s;
+  }
+  .topic-card:nth-child(2){border-top-color:var(--earth-500)}
+  .topic-card:nth-child(3){border-top-color:#7ba3c9}
+  .topic-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .topic-card .state{font-size:11.5px;font-weight:800;color:var(--green-700);letter-spacing:1px}
+  .topic-card:nth-child(2) .state{color:var(--earth-700)}
+  .topic-card h3{font-size:17.5px;line-height:1.42;color:var(--green-900)}
+  .topic-card p{font-size:13.5px;color:var(--ink-soft)}
+  .topic-cover{aspect-ratio:16/7;border-radius:12px;overflow:hidden;background:var(--green-100)}
+  .topic-cover img{width:100%;height:100%;object-fit:cover}
+  .topic-foot{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--ink-soft);margin-top:4px}
+
+  /* ===== 创作者 ===== */
+  .creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .creator-card{
+    background:var(--white);border-radius:var(--radius);padding:22px 20px;box-shadow:var(--shadow-sm);
+    text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;
+    border:1px solid rgba(31,77,54,.07);
+  }
+  .creator-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+  .creator-card .avatar{width:66px;height:66px;font-size:22px;box-shadow:0 8px 18px rgba(31,77,54,.2)}
+  .creator-card h3{font-size:16px;color:var(--green-900)}
+  .creator-field{font-size:12px;font-weight:700;color:var(--green-700);background:var(--green-100);padding:2px 11px;border-radius:99px}
+  .creator-card p{font-size:13px;color:var(--ink-soft);line-height:1.65}
+  .creator-nums{display:flex;gap:16px;font-size:12px;color:var(--ink-soft);font-variant-numeric:tabular-nums;margin-top:2px}
+  .creator-nums b{color:var(--green-800);font-size:13.5px}
+
+  /* ===== 故事 / 随笔 ===== */
+  .story-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .story-card{
+    background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-sm);overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;
+  }
+  .story-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .story-card .story-thumb{aspect-ratio:16/8;overflow:hidden;background:var(--green-100)}
+  .story-card .story-thumb img{width:100%;height:100%;object-fit:cover}
+  .story-card .story-body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .story-card h3{font-size:16.5px;color:var(--green-900);line-height:1.45}
+  .story-card p{font-size:13.5px;color:var(--ink-soft);flex:1}
+  .story-card .story-meta{font-size:12px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;border-top:1px dashed rgba(31,77,54,.14);padding-top:10px}
+
+  /* ===== 作品墙 ===== */
+  .wall{background:var(--green-900);color:#e9f4ee}
+  .wall .section-head h2{color:#f0f8f3}
+  .wall .section-head .section-desc{color:#b9d6c7}
+  .wall .section-link{color:#cde7d8}
+  .wall-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:120px;gap:14px}
+  .wall-item{
+    border-radius:14px;overflow:hidden;position:relative;background:var(--green-800);cursor:pointer;
+    transition:transform .22s,box-shadow .22s;
+  }
+  .wall-item:hover{transform:translateY(-3px);box-shadow:0 16px 30px rgba(0,0,0,.35)}
+  .wall-item img{width:100%;height:100%;object-fit:cover}
+  .wall-item .wall-cap{
+    position:absolute;inset:auto 0 0 0;padding:22px 12px 9px;font-size:11.5px;font-weight:600;color:#f2fbf6;
+    background:linear-gradient(to top,rgba(8,24,16,.82),rgba(8,24,16,0));
+  }
+  .wall-item.big{grid-column:span 3;grid-row:span 2}
+  .wall-item.mid{grid-column:span 2;grid-row:span 1}
+  .wall-item.mid.tall{grid-row:span 2}
+  .wall-item.sml{grid-column:span 1;grid-row:span 1}
+
+  /* ===== 评价 ===== */
+  .reviews{background:linear-gradient(180deg,rgba(230,216,198,.35),rgba(245,241,232,0))}
+  .review-grid{columns:3 260px;column-gap:20px}
+  .review-card{
+    break-inside:avoid;background:var(--white);border-radius:16px;padding:18px 19px;box-shadow:var(--shadow-sm);
+    margin-bottom:20px;border-left:3px solid var(--green-300);transition:transform .2s,box-shadow .2s;
+  }
+  .review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .review-card:nth-child(2n){border-left-color:var(--earth-500)}
+  .review-card:nth-child(3n){border-left-color:#7ba3c9}
+  .review-top{display:flex;align-items:center;gap:10px;margin-bottom:9px}
+  .review-top .avatar{width:34px;height:34px;font-size:13px}
+  .review-top strong{font-size:13.5px;color:var(--green-900);display:block;line-height:1.3}
+  .review-top span{font-size:11.5px;color:var(--ink-soft)}
+  .review-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.75}
+  .stars{color:#e8a33a;font-size:12px;letter-spacing:2px;margin-top:8px}
+
+  /* ===== 动态 ===== */
+  .news-list{display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .news-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px solid rgba(31,77,54,.12);align-items:flex-start}
+  .news-date{
+    flex:0 0 auto;background:var(--green-100);color:var(--green-800);border-radius:10px;padding:6px 10px;
+    font-size:12px;font-weight:800;text-align:center;line-height:1.35;font-variant-numeric:tabular-nums;
+  }
+  .news-date span{display:block;font-size:10.5px;font-weight:600;color:var(--green-600)}
+  .news-item h3{font-size:14.8px;color:var(--ink);line-height:1.5;margin-bottom:4px}
+  .news-item p{font-size:13px;color:var(--ink-soft)}
+
+  /* ===== 合作 ===== */
+  .partner-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .partner{
+    background:var(--white);border-radius:14px;padding:20px 14px;text-align:center;box-shadow:var(--shadow-sm);
+    display:flex;flex-direction:column;align-items:center;gap:8px;transition:transform .2s;
+  }
+  .partner:hover{transform:translateY(-3px)}
+  .partner .p-mark{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#fff;font-size:16px}
+  .partner strong{font-size:13.5px;color:var(--green-900)}
+  .partner span{font-size:11.5px;color:var(--ink-soft)}
+
+  /* ===== FAQ ===== */
+  .faq{background:linear-gradient(180deg,var(--green-100),rgba(228,242,234,.2))}
+  .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 26px;align-items:start}
+  details.faq-item{
+    background:var(--white);border-radius:13px;box-shadow:var(--shadow-sm);padding:0 18px;
+    border:1px solid rgba(31,77,54,.09);overflow:hidden;
+  }
+  details.faq-item summary{
+    list-style:none;cursor:pointer;padding:15px 30px 15px 0;font-size:14.5px;font-weight:700;color:var(--green-900);
+    position:relative;line-height:1.5;
+  }
+  details.faq-item summary::-webkit-details-marker{display:none}
+  details.faq-item summary::after{
+    content:"+";position:absolute;right:0;top:50%;transform:translateY(-50%);
+    width:22px;height:22px;border-radius:50%;background:var(--green-100);color:var(--green-700);
+    display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;transition:transform .25s,background .25s;
+  }
+  details.faq-item[open] summary::after{transform:translateY(-50%) rotate(45deg);background:var(--green-700);color:#fff}
+  details.faq-item p{font-size:13.5px;color:var(--ink-soft);padding:0 0 16px;line-height:1.75}
+
+  /* ===== 联系 / 投稿 ===== */
+  .contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:start}
+  .contact-card{
+    background:var(--green-900);color:#e7f3ec;border-radius:22px;padding:34px 32px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+  }
+  .contact-card::after{
+    content:"";position:absolute;right:-70px;top:-70px;width:230px;height:230px;border-radius:50%;
+    background:radial-gradient(circle,rgba(78,158,119,.55),rgba(78,158,119,0) 70%);
+  }
+  .contact-card h2{color:#f2faf5}
+  .contact-card p{color:#bcd9ca;margin-top:10px;font-size:14px;position:relative}
+  .contact-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;position:relative}
+  .contact-info{display:grid;gap:14px}
+  .contact-info div{
+    background:var(--white);border-radius:14px;padding:16px 18px;box-shadow:var(--shadow-sm);
+    display:flex;gap:13px;align-items:flex-start;
+  }
+  .contact-info .ci-icon{
+    width:38px;height:38px;border-radius:11px;background:var(--green-100);display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  }
+  .contact-info .ci-icon svg{width:19px;height:19px;stroke:var(--green-700);fill:none;stroke-width:1.9}
+  .contact-info strong{display:block;font-size:14px;color:var(--green-900)}
+  .contact-info span{font-size:13px;color:var(--ink-soft)}
+
+  /* ===== 页脚 ===== */
+  footer.site-footer{background:#12301f;color:#a9c8b7;padding:52px 0 26px;font-size:13.5px}
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:34px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.12)}
+  footer .logo{color:#eaf6ef}
+  footer .logo small{color:var(--green-300)}
+  .footer-brand p{margin-top:14px;line-height:1.8;color:#93b3a2;max-width:34ch}
+  .footer-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+  .footer-badges span{font-size:11.5px;color:#bfe0cd;border:1px solid rgba(169,214,191,.35);border-radius:99px;padding:2px 10px}
+  footer h4{color:#e2f2e9;font-size:14px;margin-bottom:14px;letter-spacing:.5px}
+  footer ul{list-style:none;display:grid;gap:9px}
+  footer ul a{color:#9fc0ad;transition:color .18s}
+  footer ul a:hover{color:#fff}
+  .footer-bottom{padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:#7fa390;font-size:12.5px}
+
+  /* ===== 浮动工具 ===== */
+  .back-top{
+    position:fixed;right:22px;bottom:24px;width:46px;height:46px;border-radius:50%;background:var(--green-700);color:#fff;
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);z-index:90;
+    opacity:0;pointer-events:none;transform:translateY(14px);transition:opacity .25s,transform .25s;
+  }
+  .back-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .back-top svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:rgba(18,48,31,.94);color:#f0faf4;
+    padding:11px 22px;border-radius:99px;font-size:13.5px;box-shadow:var(--shadow);z-index:200;
+    opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;max-width:86vw;text-align:center;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  .modal-mask{
+    position:fixed;inset:0;background:rgba(11,30,20,.55);backdrop-filter:blur(3px);z-index:180;
+    display:none;align-items:center;justify-content:center;padding:20px;
+  }
+  .modal-mask.open{display:flex}
+  .modal{
+    background:var(--white);border-radius:20px;padding:28px 26px;width:min(460px,94vw);box-shadow:0 30px 60px rgba(0,0,0,.3);
+    max-height:86vh;overflow:auto;
+  }
+  .modal h3{font-size:19px;color:var(--green-900);margin-bottom:6px}
+  .modal .modal-sub{font-size:13px;color:var(--ink-soft);margin-bottom:16px}
+  .modal label{display:block;font-size:13px;font-weight:700;color:var(--ink);margin:12px 0 6px}
+  .modal input,.modal textarea,.modal select{
+    width:100%;padding:10px 13px;border-radius:10px;border:1px solid rgba(31,77,54,.22);font-size:13.5px;
+    font-family:inherit;color:var(--ink);outline:none;background:#fbfdfb;
+  }
+  .modal input:focus,.modal textarea:focus,.modal select:focus{border-color:var(--green-500);box-shadow:0 0 0 3px rgba(78,158,119,.15)}
+  .modal textarea{min-height:88px;resize:vertical}
+  .modal-foot{display:flex;justify-content:flex-end;gap:10px;margin-top:20px}
+  .share-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+  .share-row button{
+    border-radius:12px;padding:14px 8px;font-size:13px;font-weight:700;background:var(--green-100);color:var(--green-800);
+    transition:background .18s;
+  }
+  .share-row button:hover{background:var(--green-300)}
+
+  /* ===== 响应式 ===== */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-visual{max-width:620px}
+    .focus-grid{grid-template-columns:1fr 1fr}
+    .focus-grid .video-card.large{grid-column:span 2}
+    .creator-grid{grid-template-columns:1fr 1fr}
+    .topic-grid,.story-wrap{grid-template-columns:1fr 1fr}
+    .wall-grid{grid-template-columns:repeat(4,1fr)}
+    .wall-item.big{grid-column:span 2}
+    .wall-item.mid{grid-column:span 2}
+    .wall-item.sml{grid-column:span 2}
+    .partner-row{grid-template-columns:repeat(3,1fr)}
+    .footer-grid{grid-template-columns:1fr 1fr}
+  }
+  @media (max-width:860px){
+    nav.main-nav{
+      position:absolute;top:calc(var(--header-h) + var(--notice-h));left:0;right:0;
+      background:var(--sand);flex-direction:column;padding:12px 5vw 18px;gap:2px;margin:0;
+      border-bottom:1px solid rgba(31,77,54,.14);box-shadow:0 18px 26px rgba(23,61,43,.12);
+      display:none;
+    }
+    nav.main-nav.open{display:flex}
+    nav.main-nav a{padding:11px 12px;font-size:15px}
+    .nav-toggle{display:flex;order:3}
+    .header-tools{order:4}
+    .search-box input{width:140px}
+    .search-box input:focus{width:160px}
+    .header-inner{gap:12px}
+    .header-tools .btn-primary{display:none}
+    section{padding:48px 0}
+    .contact-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:640px){
+    :root{--header-h:58px}
+    .notice{font-size:12px}
+    .notice-badge{display:none}
+    .logo{font-size:16.5px;gap:8px}
+    .logo-mark{width:29px;height:29px}
+    .search-box input{width:118px}
+    .search-box input:focus{width:134px}
+    .hero{padding:36px 0 30px}
+    .hero-stats{gap:22px}
+    .hero-stats div strong{font-size:22px}
+    .hero-float{left:0;bottom:-30px;padding:11px 14px;max-width:250px}
+    .hero-mini{right:0;top:-16px}
+    .focus-grid,.topic-grid,.story-wrap,.creator-grid,.news-list,.faq-list{grid-template-columns:1fr}
+    .focus-grid .video-card.large{grid-column:span 1}
+    .review-grid{columns:1}
+    .wall-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:110px}
+    .wall-item.big{grid-column:span 2;grid-row:span 1}
+    .wall-item.mid{grid-column:span 1}
+    .wall-item.sml{grid-column:span 1}
+    .partner-row{grid-template-columns:1fr 1fr}
+    .footer-grid{grid-template-columns:1fr;gap:26px}
+    .contact-card{padding:26px 22px}
+    .hero-actions .btn{flex:1 1 auto}
+  }
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="topbar-stack">
+  <div class="notice" role="region" aria-label="站内公告">
+    <div class="wrap">
+      <span class="notice-badge">最新</span>
+      <div class="notice-track">
+        <span>「旧物新生」第 12 期征片已开放，主题为“一把椅子的第二人生”，投稿截止 6 月 30 日 &nbsp;·&nbsp; 本周新增 48 条绿色生活原创短片，可循环家居专题上线 &nbsp;·&nbsp; 社区创作者大赛「给地球的 3 分钟」报名通道开启，共设 9 个奖项 &nbsp;·&nbsp; 官方发布《可持续影像内容规范 2.0》，欢迎查阅 &nbsp;·&nbsp; 官方发布《可持续影像内容规范 2.0》，欢迎查阅 &nbsp;·&nbsp; 本周新增 48 条绿色生活原创短片，可循环家居专题上线 &nbsp;·&nbsp; 社区创作者大赛「给地球的 3 分钟」报名通道开启，共设 9 个奖项 &nbsp;·&nbsp; 「旧物新生」第 12 期征片已开放，主题为“一把椅子的第二人生”，投稿截止 6 月 30 日 &nbsp;·&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="#top" aria-label="绿色椅子在线 官网 首页">
+        <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#1f4d36"/>
+          <path d="M11 14.5h16a2.5 2.5 0 0 1 2.5 2.5v8.5h-4.2V19H14.7v6.5H10.5V17a2.5 2.5 0 0 1 2.5-2.5Z" fill="#a9d6bf"/>
+          <rect x="13.5" y="27.5" width="3.4" height="5" rx="1.2" fill="#f7c86b"/>
+          <rect x="23.1" y="27.5" width="3.4" height="5" rx="1.2" fill="#f7c86b"/>
+        </svg>
+        <span>绿色椅子在线<small>SEAT OF GREEN</small></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="主导航">
+        <a href="#top">首页</a>
+        <a href="#focus">热门影像</a>
+        <a href="#topics">专题企划</a>
+        <a href="#creators">创作者</a>
+        <a href="#stories">社区随笔</a>
+        <a href="#news">企业动态</a>
+        <a href="#faq">帮助中心</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+
+      <div class="header-tools">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="siteSearch" placeholder="搜索影像 / 创作者" aria-label="站内搜索" autocomplete="off">
+          <div class="search-tip" id="searchTip" role="status" aria-live="polite"></div>
+        </div>
+        <button class="btn btn-primary btn-sm" data-open="submit">投稿</button>
+        <button class="nav-toggle" id="navToggle" aria-label="展开导航" aria-expanded="false" aria-controls="mainNav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<main id="top">
+
+  <!-- 首屏 -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><i></i>官方网站 · 绿色生活影像社区</span>
+        <h1 id="heroTitle">绿色椅子在线</h1>
+        <p class="hero-sub">一把椅子，一种可持续的生活方式</p>
+        <p class="hero-desc">
+          绿色椅子在线是一个以绿色生活为核心的原创影像社区，品牌名取自“一张椅子坐下来说话”的朴素想象。我们相信真实的记录比口号更有力量：旧木料如何被重新打磨成一把椅子，社区花园怎样在四季里生长，一个家庭怎样用一年时间把厨房垃圾减半——这些细小的题目，构成了我们持续更新的内容生态。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#focus">浏览热门影像</a>
+          <a class="btn btn-ghost" href="#creators">认识创作者</a>
+          <button class="btn btn-light" data-open="submit">提交我的作品</button>
+        </div>
+        <div class="hero-stats">
+          <div><strong data-count="12800">12,800</strong><span>原创影像作品</span></div>
+          <div><strong data-count="640">640</strong><span>认证创作者</span></div>
+          <div><strong data-count="38">38</strong><span>城市影像站点</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-main-cover">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='s1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231f4d36'/%3E%3Cstop offset='1' stop-color='%234e9e77'/%3E%3C/linearGradient%3E%3ClinearGradient id='floor' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23d9c9ac'/%3E%3Cstop offset='1' stop-color='%23b79b74'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23s1)'/%3E%3Ccircle cx='640' cy='110' r='150' fill='%23a9d6bf' opacity='.28'/%3E%3Ccircle cx='140' cy='70' r='90' fill='%23f7c86b' opacity='.22'/%3E%3Crect y='360' width='800' height='140' fill='url(%23floor)'/%3E%3Cpath d='M300 360q0-120 100-120t100 120Z' fill='%23c9a978' opacity='.35'/%3E%3Cg%3E%3Crect x='300' y='200' width='200' height='24' rx='10' fill='%233a8460'/%3E%3Crect x='292' y='196' width='216' height='16' rx='8' fill='%232b6b4a'/%3E%3Crect x='312' y='224' width='20' height='130' rx='8' fill='%233a8460'/%3E%3Crect x='468' y='224' width='20' height='130' rx='8' fill='%233a8460'/%3E%3Crect x='318' y='284' width='164' height='18' rx='7' fill='%234e9e77'/%3E%3Crect x='300' y='336' width='200' height='16' rx='7' fill='%232b6b4a'/%3E%3C/g%3E%3Cg opacity='.9'%3E%3Cpath d='M120 360c0-40 22-64 46-64s46 24 46 64Z' fill='%232b6b4a'/%3E%3Cpath d='M132 296c0-30 16-52 34-52s34 22 34 52Z' fill='%234e9e77'/%3E%3C/g%3E%3Cg opacity='.85'%3E%3Crect x='596' y='262' width='14' height='98' rx='5' fill='%237a5b3c'/%3E%3Cpath d='M603 268c-30-16-46-42-44-72 30 4 48 26 52 58Z' fill='%234e9e77'/%3E%3Cpath d='M603 288c28-14 42-38 40-64-26 4-42 22-46 50Z' fill='%233a8460'/%3E%3C/g%3E%3Cg fill='%23ffffff' opacity='.5'%3E%3Ccircle cx='700' cy='300' r='4'/%3E%3Ccircle cx='726' cy='330' r='3'/%3E%3Ccircle cx='676' cy='340' r='2.5'/%3E%3C/g%3E%3C/svg%3E" alt="绿色椅子在线首屏主视觉：绿色木椅置于自然与家居之间的暖光空间" width="800" height="500">
+          <div class="tagline">
+            <span class="pill">本季主推</span>
+            <span class="pill">可持续家居</span>
+            <span class="pill">原创首发</span>
+          </div>
+        </div>
+        <div class="hero-mini"><span class="dot"></span>正在直播 · 木作开放日</div>
+        <div class="hero-float">
+          <div class="avatar" style="background:linear-gradient(135deg,#3a8460,#a9d6bf)">林</div>
+          <p><strong>林知远 · 木作记录者</strong>“这把椅子用了七年，修过三次，还坐得下很多人。”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section id="focus" aria-labelledby="focusTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>焦点推荐</span>
+          <h2 id="focusTitle">本周值得坐下来的<span class="accent">五段影像</span></h2>
+          <p class="section-desc">编辑部从近期投稿中挑出五条作品，它们分别关于修复、耕种、记账、改造与陪伴。每一条都来自真实生活，没有摆拍，也没有脚本式的排练。</p>
+        </div>
+        <a class="section-link" href="#topics">查看全部专题 →</a>
+      </div>
+
+      <div class="focus-grid">
+        <article class="video-card large">
+          <div class="video-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='a1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%237a5b3c'/%3E%3Cstop offset='1' stop-color='%23c8a878'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23a1)'/%3E%3Crect x='0' y='300' width='800' height='150' fill='%234e9e77' opacity='.35'/%3E%3Cg%3E%3Crect x='250' y='150' width='300' height='26' rx='10' fill='%232b6b4a'/%3E%3Crect x='240' y='146' width='320' height='15' rx='7' fill='%231f4d36'/%3E%3Crect x='264' y='176' width='22' height='170' rx='8' fill='%232b6b4a'/%3E%3Crect x='514' y='176' width='22' height='170' rx='8' fill='%232b6b4a'/%3E%3Crect x='270' y='240' width='260' height='20' rx='7' fill='%233a8460'/%3E%3Crect x='250' y='318' width='300' height='16' rx='7' fill='%231f4d36'/%3E%3C/g%3E%3Cg stroke='%23f7f1e4' stroke-width='3' opacity='.6' fill='none'%3E%3Cpath d='M90 120q26 40 0 80'/%3E%3Cpath d='M124 110q32 50 0 100'/%3E%3C/g%3E%3Ccircle cx='660' cy='110' r='62' fill='%23e6d8c6' opacity='.5'/%3E%3C/svg%3E" alt="旧木椅修复全记录：工作台上的绿色椅子与待打磨的木料" width="800" height="450">
+            <div class="thumb-mask"></div>
+            <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="thumb-tags"><span>手作DIY</span><span>旧物新生</span></div>
+            <span class="duration">12:48</span>
+          </div>
+          <div class="video-body">
+            <h3>一把旧木椅的七十二小时：从拆解、打磨到重新上蜡的完整记录</h3>
+            <p>创作者在自己家的阳台上完成了这次修复。视频保留了所有失败镜头——砂纸磨穿、榫卯对不齐、以及第三次返工时的那句“算了再来”。它不教你速成，只把过程摊开给你看。</p>
+            <div class="video-meta">
+              <span class="author-mini"><span class="avatar" style="background:linear-gradient(135deg,#7a5b3c,#c8a878)">知</span>林知远</span>
+              <div class="card-actions">
+                <button class="icon-btn" data-like aria-label="点赞这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg><b>3,142</b></button>
+                <button class="icon-btn" data-save aria-label="收藏这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4.4L6 21V4Z"/></svg><b>收藏</b></button>
+                <button class="icon-btn" data-share aria-label="分享这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.4"/><circle cx="18" cy="6" r="2.4"/><circle cx="18" cy="18" r="2.4"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg><b>分享</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='b1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23a9d6bf'/%3E%3Cstop offset='1' stop-color='%232b6b4a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23b1)'/%3E%3Cg fill='%231f4d36' opacity='.85'%3E%3Crect x='0' y='330' width='800' height='120'/%3E%3C/g%3E%3Cg%3E%3Crect x='120' y='200' width='560' height='14' rx='6' fill='%237a5b3c'/%3E%3Crect x='140' y='214' width='14' height='120' rx='6' fill='%237a5b3c'/%3E%3Crect x='646' y='214' width='14' height='120' rx='6' fill='%237a5b3c'/%3E%3C/g%3E%3Cg fill='%234e9e77'%3E%3Ccircle cx='220' cy='184' r='26'/%3E%3Ccircle cx='290' cy='172' r='20'/%3E%3Ccircle cx='360' cy='186' r='24'/%3E%3Ccircle cx='430' cy='170' r='18'/%3E%3Ccircle cx='500' cy='184' r='25'/%3E%3Ccircle cx='570' cy='173' r='19'/%3E%3C/g%3E%3Cg fill='%23f7c86b' opacity='.85'%3E%3Ccircle cx='250' cy='150' r='8'/%3E%3Ccircle cx='400' cy='146' r='7'/%3E%3Ccircle cx='540' cy='150' r='8'/%3E%3C/g%3E%3C/svg%3E" alt="阳台种菜一整年：城市菜园四季轮作的真实收成记录" width="800" height="450">
+            <div class="thumb-mask"></div>
+            <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="thumb-tags"><span>日常记录</span></div>
+            <span class="duration">09:06</span>
+          </div>
+          <div class="video-body">
+            <h3>阳台上的一整年：四季轮作与六次失败的复盘</h3>
+            <p>三平方米的种植箱，十二个月的记录，最终只收了两斤番茄。</p>
+            <div class="video-meta">
+              <span class="author-mini"><span class="avatar" style="background:linear-gradient(135deg,#4e9e77,#a9d6bf)">周</span>周野</span>
+              <div class="card-actions">
+                <button class="icon-btn" data-like aria-label="点赞这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg><b>2,018</b></button>
+                <button class="icon-btn" data-save aria-label="收藏这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4.4L6 21V4Z"/></svg><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='c1' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23e6d8c6'/%3E%3Cstop offset='1' stop-color='%23c8a878'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23c1)'/%3E%3Cg fill='%237a5b3c' opacity='.5'%3E%3Crect x='60' y='300' width='680' height='10' rx='5'/%3E%3C/g%3E%3Cg%3E%3Crect x='250' y='160' width='300' height='140' rx='14' fill='%231f4d36'/%3E%3Crect x='272' y='182' width='256' height='86' rx='8' fill='%23a9d6bf'/%3E%3Cg fill='%232b6b4a'%3E%3Crect x='300' y='210' width='60' height='8' rx='4'/%3E%3Crect x='300' y='228' width='130' height='8' rx='4'/%3E%3Crect x='300' y='246' width='96' height='8' rx='4'/%3E%3C/g%3E%3C/g%3E%3Cg fill='%233a8460'%3E%3Crect x='180' y='120' width='90' height='180' rx='10' opacity='.7'/%3E%3Crect x='530' y='140' width='90' height='160' rx='10' opacity='.55'/%3E%3C/g%3E%3C/svg%3E" alt="家庭账本里的减碳记录：一年能耗与消费的对比图表" width="800" height="450">
+            <div class="thumb-mask"></div>
+            <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="thumb-tags"><span>知识科普</span><span>实测</span></div>
+            <span class="duration">15:22</span>
+          </div>
+          <div class="video-body">
+            <h3>把减碳写进家庭账本：12 个月的真实数据</h3>
+            <p>一个三口之家用表格记录电费、水费与购物，结果和想象不太一样。</p>
+            <div class="video-meta">
+              <span class="author-mini"><span class="avatar" style="background:linear-gradient(135deg,#7ba3c9,#a9d6bf)">沈</span>沈一禾</span>
+              <div class="card-actions">
+                <button class="icon-btn" data-like aria-label="点赞这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg><b>1,764</b></button>
+                <button class="icon-btn" data-save aria-label="收藏这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4.4L6 21V4Z"/></svg><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='d1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a8460'/%3E%3Cstop offset='1' stop-color='%231f4d36'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23d1)'/%3E%3Cg fill='%23a9d6bf' opacity='.4'%3E%3Ccircle cx='700' cy='90' r='130'/%3E%3C/g%3E%3Cg%3E%3Crect x='100' y='260' width='600' height='16' rx='7' fill='%23e6d8c6'/%3E%3Crect x='130' y='276' width='16' height='100' rx='7' fill='%23c8a878'/%3E%3Crect x='654' y='276' width='16' height='100' rx='7' fill='%23c8a878'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='250' cy='220' r='34' opacity='.9'/%3E%3Ccircle cx='400' cy='200' r='44' opacity='.75'/%3E%3Ccircle cx='550' cy='226' r='30' opacity='.9'/%3E%3C/g%3E%3Cg stroke='%23f5f1e8' stroke-width='3' opacity='.6' fill='none'%3E%3Cpath d='M340 380q60-40 120 0'/%3E%3Cpath d='M300 400q100-56 200 0'/%3E%3C/g%3E%3C/svg%3E" alt="社区共用客厅改造：邻里共同搭建的木制长桌与共享空间" width="800" height="450">
+            <div class="thumb-mask"></div>
+            <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="thumb-tags"><span>城市探索</span></div>
+            <span class="duration">07:40</span>
+          </div>
+          <div class="video-body">
+            <h3>老小区里的共用客厅：一栋楼如何重新认识彼此</h3>
+            <p>从一把放在楼道的长椅开始，邻居们慢慢开始说话了。</p>
+            <div class="video-meta">
+              <span class="author-mini"><span class="avatar" style="background:linear-gradient(135deg,#4e9e77,#e6d8c6)">何</span>何处安</span>
+              <div class="card-actions">
+                <button class="icon-btn" data-like aria-label="点赞这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg><b>2,553</b></button>
+                <button class="icon-btn" data-save aria-label="收藏这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4.4L6 21V4Z"/></svg><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="video-card">
+          <div class="video-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='e1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f5f1e8'/%3E%3Cstop offset='1' stop-color='%23e6d8c6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23e1)'/%3E%3Cg%3E%3Crect x='270' y='140' width='260' height='180' rx='16' fill='%231f4d36'/%3E%3Crect x='294' y='164' width='212' height='132' rx='10' fill='%23a9d6bf'/%3E%3Cg fill='%232b6b4a'%3E%3Cpath d='M330 250c0-26 18-44 40-44s40 18 40 44Z'/%3E%3C/g%3E%3C/g%3E%3Cg fill='%23c8a878'%3E%3Crect x='210' y='320' width='380' height='20' rx='9'/%3E%3C/g%3E%3Cg stroke='%237a5b3c' stroke-width='4' opacity='.5' fill='none'%3E%3Cpath d='M120 300h50M130 320h40M640 300h50M650 320h40'/%3E%3C/g%3E%3Ccircle cx='140' cy='180' r='40' fill='%234e9e77' opacity='.45'/%3E%3Ccircle cx='676' cy='200' r='52' fill='%233a8460' opacity='.35'/%3E%3C/svg%3E" alt="一只猫与一张椅子的三年：陪伴影像的日常切片" width="800" height="450">
+            <div class="thumb-mask"></div>
+            <div class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="thumb-tags"><span>萌宠日常</span><span>陪伴</span></div>
+            <span class="duration">05:31</span>
+          </div>
+          <div class="video-body">
+            <h3>它只睡那张绿椅子：三年里同一机位的家庭影像</h3>
+            <p>固定机位、自然光、不剪辑，只有时间在走。</p>
+            <div class="video-meta">
+              <span class="author-mini"><span class="avatar" style="background:linear-gradient(135deg,#a8845e,#e6d8c6)">徐</span>徐晚</span>
+              <div class="card-actions">
+                <button class="icon-btn" data-like aria-label="点赞这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.5-7-9.5A3.9 3.9 0 0 1 12 8a3.9 3.9 0 0 1 7 2.5C19 15.5 12 20 12 20Z"/></svg><b>4,909</b></button>
+                <button class="icon-btn" data-save aria-label="收藏这条影像"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h12v17l-6-4.4L6 21V4Z"/></svg><b>收藏</b></button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section id="topics" class="topics" aria-labelledby="topicsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>专题企划</span>
+          <h2 id="topicsTitle">持续更新的<span class="accent">长期命题</span></h2>
+          <p class="section-desc">专题是绿色椅子在线的内容骨架。我们不做一次性热点，而是围绕几个可以长期追问的问题，持续征集、持续更新，让创作者的作品在同一条线索上彼此照应。</p>
+        </div>
+        <a class="section-link" href="#contact">参与专题共创 →</a>
+      </div>
+
+      <div class="topic-grid">
+        <article class="topic-card">
+          <div class="topic-cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 350'%3E%3Crect width='800' height='350' fill='%233a8460'/%3E%3Cg fill='%232b6b4a'%3E%3Ccircle cx='160' cy='120' r='90' opacity='.6'/%3E%3Ccircle cx='660' cy='250' r='110' opacity='.5'/%3E%3C/g%3E%3Cg%3E%3Crect x='330' y='110' width='140' height='18' rx='8' fill='%23e6d8c6'/%3E%3Crect x='320' y='106' width='160' height='10' rx='5' fill='%23c8a878'/%3E%3Crect x='342' y='128' width='14' height='90' rx='6' fill='%23e6d8c6'/%3E%3Crect x='446' y='128' width='14' height='90' rx='6' fill='%23e6d8c6'/%3E%3C/g%3E%3Cg fill='%23f7c86b' opacity='.8'%3E%3Ccircle cx='240' cy='250' r='7'/%3E%3Ccircle cx='560' cy='90' r='6'/%3E%3Ccircle cx='600' cy='300' r='5'/%3E%3C/g%3E%3C/svg%3E" alt="专题旧物新生：绿色椅子与拆解木料构成的封面图" width="800" height="350">
+          </div>
+          <span class="state">更新中 · 第 12 期</span>
+          <h3>旧物新生：把一件东西用得更久一点</h3>
+          <p>修复、改造、二次设计。我们邀请木作、裁缝、家电维修与旧物店主，讲清楚“修”这件事到底难在哪。</p>
+          <div class="topic-foot"><span>已收录 186 条作品</span><span>本月新增 24 条</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 350'%3E%3Crect width='800' height='350' fill='%23c8a878'/%3E%3Crect y='240' width='800' height='110' fill='%234e9e77' opacity='.55'/%3E%3Cg fill='%232b6b4a'%3E%3Cpath d='M120 240c0-52 30-88 62-88s62 36 62 88Z'/%3E%3Cpath d='M600 240c0-62 34-104 70-104s70 42 70 104Z' opacity='.8'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='240' cy='90' r='26'/%3E%3Ccircle cx='560' cy='70' r='18'/%3E%3C/g%3E%3Cg stroke='%23f5f1e8' stroke-width='4' fill='none' opacity='.7'%3E%3Cpath d='M330 190q60-50 120 0'/%3E%3Cpath d='M350 210q40-34 80 0'/%3E%3C/g%3E%3C/svg%3E" alt="专题城市里的四季：阳台与社区花园的种植影像封面" width="800" height="350">
+          </div>
+          <span class="state">长期征集</span>
+          <h3>城市里的四季：阳台、屋顶与社区花园</h3>
+          <p>在水泥之间种东西的人，都在记录什么？这一专题关注城市种植的真实收成与失败经验。</p>
+          <div class="topic-foot"><span>已收录 143 条作品</span><span>覆盖 21 座城市</span></div>
+        </article>
+
+        <article class="topic-card">
+          <div class="topic-cover">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 350'%3E%3Crect width='800' height='350' fill='%237ba3c9'/%3E%3Cg fill='%23f5f1e8' opacity='.85'%3E%3Crect x='120' y='90' width='180' height='120' rx='10'/%3E%3Crect x='330' y='70' width='140' height='90' rx='10'/%3E%3Crect x='500' y='110' width='180' height='100' rx='10'/%3E%3C/g%3E%3Cg fill='%231f4d36' opacity='.6'%3E%3Crect x='140' y='110' width='120' height='9' rx='4'/%3E%3Crect x='140' y='130' width='80' height='9' rx='4'/%3E%3Crect x='350' y='92' width='90' height='8' rx='4'/%3E%3Crect x='350' y='110' width='60' height='8' rx='4'/%3E%3Crect x='522' y='132' width='110' height='9' rx='4'/%3E%3C/g%3E%3Cg fill='%233a8460'%3E%3Crect y='280' width='800' height='70' opacity='.7'/%3E%3C/g%3E%3C/svg%3E" alt="专题减碳生活账本：家庭数据表格与记录素材封面" width="800" height="350">
+          </div>
+          <span class="state">每月更新</span>
+          <h3>生活账本：把抽象的数字变成看得见的选择</h3>
+          <p>水电、出行、购物、垃圾。用一个月为单位的账本，讨论普通人到底能在哪些环节做出改变。</p>
+          <div class="topic-foot"><span>已收录 97 条作品</span><span>下期更新 7 月 3 日</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者矩阵 -->
+  <section id="creators" aria-labelledby="creatorsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>创作者矩阵</span>
+          <h2 id="creatorsTitle">在这里长期记录的<span class="accent">六个人</span></h2>
+          <p class="section-desc">绿色椅子在线的创作者大多不是全职博主。他们是木工、教师、社区工作者、工程师与摄影师，拍摄只是记录生活的另一种方式。我们提供认证、编排与分成，让他们可以稳定地更新。</p>
+        </div>
+        <a class="section-link" href="#contact">申请创作者认证 →</a>
+      </div>
+
+      <div class="creator-grid">
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#7a5b3c,#c8a878)">林</div>
+          <h3>林知远</h3>
+          <span class="creator-field">木作修复</span>
+          <p>做了十二年家具修复，习惯把失败素材一起剪进片子里。更新慢，但每条都自己配旁白。</p>
+          <div class="creator-nums"><span><b>86</b> 作品</span><span><b>3.2万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="林知远">查看档案</button>
+        </article>
+
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#4e9e77,#a9d6bf)">周</div>
+          <h3>周野</h3>
+          <span class="creator-field">城市种植</span>
+          <p>阳台种植第七年，擅长把复杂的种植知识讲成日常对话，评论区常年有人来问“为什么我的番茄不开花”。</p>
+          <div class="creator-nums"><span><b>112</b> 作品</span><span><b>4.6万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="周野">查看档案</button>
+        </article>
+
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#7ba3c9,#a9d6bf)">沈</div>
+          <h3>沈一禾</h3>
+          <span class="creator-field">数据科普</span>
+          <p>能源行业工程师，用表格和图表讲故事。她坚持每个数字都标注来源，被观众称作“最不爱夸张的创作者”。</p>
+          <div class="creator-nums"><span><b>54</b> 作品</span><span><b>2.7万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="沈一禾">查看档案</button>
+        </article>
+
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#a8845e,#e6d8c6)">徐</div>
+          <h3>徐晚</h3>
+          <span class="creator-field">家庭影像</span>
+          <p>固定机位爱好者，一年只出几条片。她说自己拍的其实不是宠物，是时间在一间屋子里经过的样子。</p>
+          <div class="creator-nums"><span><b>38</b> 作品</span><span><b>5.1万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="徐晚">查看档案</button>
+        </article>
+
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#2b6b4a,#7ba3c9)">何</div>
+          <h3>何处安</h3>
+          <span class="creator-field">社区观察</span>
+          <p>社区营造工作者，镜头常对着楼道、长椅和菜市场。作品里有大量居民的原声，很少配音乐。</p>
+          <div class="creator-nums"><span><b>67</b> 作品</span><span><b>1.9万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="何处安">查看档案</button>
+        </article>
+
+        <article class="creator-card">
+          <div class="avatar" style="background:linear-gradient(135deg,#c8a878,#3a8460)">陈</div>
+          <h3>陈拾</h3>
+          <span class="creator-field">旧物采买</span>
+          <p>旧货市场常客，擅长在一堆杂物里辨认值得留下的东西。最近在拍一系列“十块钱以内的好物”。</p>
+          <div class="creator-nums"><span><b>95</b> 作品</span><span><b>3.8万</b> 关注</span></div>
+          <button class="btn btn-ghost btn-sm" data-author="陈拾">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事随笔 -->
+  <section id="stories" aria-labelledby="storiesTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>社区随笔</span>
+          <h2 id="storiesTitle">影像之外的<span class="accent">一些文字</span></h2>
+          <p class="section-desc">有些事用画面讲不完整，我们就在社区里留下文字。以下随笔均来自站内创作者，与他们的作品彼此呼应。</p>
+        </div>
+        <a class="section-link" href="#news">查看社区动态 →</a>
+      </div>
+
+      <div class="story-wrap">
+        <article class="story-card">
+          <div class="story-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23e6d8c6'/%3E%3Cg fill='%237a5b3c'%3E%3Crect x='200' y='220' width='400' height='20' rx='9'/%3E%3Crect x='220' y='240' width='18' height='110' rx='7'/%3E%3Crect x='562' y='240' width='18' height='110' rx='7'/%3E%3C/g%3E%3Cg fill='%234e9e77'%3E%3Crect x='230' y='140' width='340' height='24' rx='10'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='620' cy='100' r='40' opacity='.7'/%3E%3C/g%3E%3Cg fill='%232b6b4a' opacity='.4'%3E%3Ccircle cx='160' cy='320' r='60'/%3E%3C/g%3E%3C/svg%3E" alt="随笔配图：阳光下的木制长桌与绿色椅背" width="800" height="400">
+          </div>
+          <div class="story-body">
+            <h3>我为什么不再追求“修得跟新的一样”</h3>
+            <p>第三次给那张椅子上蜡时，我忽然觉得那些补过的痕迹挺好的。它们记录的不只是木头，还有我这些年不太熟练的手艺，以及几次差点放弃又重新开始的犹豫。</p>
+            <div class="story-meta"><span class="avatar" style="width:24px;height:24px;font-size:10.5px;background:linear-gradient(135deg,#7a5b3c,#c8a878)">林</span>林知远 · 随笔</div>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23a9d6bf'/%3E%3Cg fill='%232b6b4a'%3E%3Crect x='0' y='290' width='800' height='110'/%3E%3C/g%3E%3Cg fill='%231f4d36'%3E%3Crect x='140' y='210' width='520' height='22' rx='9'/%3E%3Crect x='160' y='232' width='16' height='70' rx='7'/%3E%3Crect x='624' y='232' width='16' height='70' rx='7'/%3E%3C/g%3E%3Cg fill='%233a8460'%3E%3Ccircle cx='240' cy='190' r='28'/%3E%3Ccircle cx='330' cy='178' r='22'/%3E%3Ccircle cx='430' cy='192' r='26'/%3E%3Ccircle cx='530' cy='180' r='20'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='290' cy='150' r='9'/%3E%3Ccircle cx='470' cy='144' r='8'/%3E%3C/g%3E%3C/svg%3E" alt="随笔配图：阳台种植箱与成排的绿色叶菜" width="800" height="400">
+          </div>
+          <div class="story-body">
+            <h3>种了七年菜，我终于接受收成不好这件事</h3>
+            <p>第一年我记录每一株苗的高度，第三年开始记温度，第五年只在本子上写一句“今天浇水了”。这个变化不是放弃，而是终于明白农业本身就有大量不可控的部分。</p>
+            <div class="story-meta"><span class="avatar" style="width:24px;height:24px;font-size:10.5px;background:linear-gradient(135deg,#4e9e77,#a9d6bf)">周</span>周野 · 随笔</div>
+          </div>
+        </article>
+
+        <article class="story-card">
+          <div class="story-thumb">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23f5f1e8'/%3E%3Cg fill='%237ba3c9' opacity='.5'%3E%3Crect x='120' y='90' width='150' height='90' rx='9'/%3E%3Crect x='300' y='70' width='120' height='70' rx='9'/%3E%3Crect x='450' y='100' width='160' height='86' rx='9'/%3E%3C/g%3E%3Cg fill='%231f4d36' opacity='.65'%3E%3Crect x='140' y='108' width='90' height='8' rx='4'/%3E%3Crect x='140' y='126' width='60' height='8' rx='4'/%3E%3Crect x='320' y='88' width='70' height='7' rx='4'/%3E%3Crect x='470' y='120' width='100' height='8' rx='4'/%3E%3C/g%3E%3Cg fill='%233a8460'%3E%3Crect y='300' width='800' height='100' opacity='.35'/%3E%3C/g%3E%3Cg stroke='%237a5b3c' stroke-width='3' opacity='.5' fill='none'%3E%3Cpath d='M640 240l40 90M700 240l-40 90'/%3E%3C/g%3E%3C/svg%3E" alt="随笔配图：家庭账本表格与减碳记录的页面" width="800" height="400">
+          </div>
+          <div class="story-body">
+            <h3>账本教我的事：不要把改变想得太大</h3>
+            <p>真正被数据推翻的是我的直觉。我以为快递包装是最大的一块，结果一年的记录显示，占比最高的是冰箱和待机电器。这个结论不好看，但很有用。</p>
+            <div class="story-meta"><span class="avatar" style="width:24px;height:24px;font-size:10.5px;background:linear-gradient(135deg,#7ba3c9,#a9d6bf)">沈</span>沈一禾 · 随笔</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品墙 -->
+  <section class="wall" aria-labelledby="wallTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow" style="background:rgba(169,214,191,.18);color:#cde7d8;border-color:rgba(169,214,191,.3)"><i></i>影像墙</span>
+          <h2 id="wallTitle">来自社区的<span style="color:#a9d6bf">九帧画面</span></h2>
+          <p class="section-desc">影像墙每周更新一次，由编辑与创作者共同推荐。它们没有统一的风格，唯一的共同点是：拍摄者都认真地待在了自己的现场。</p>
+        </div>
+        <a class="section-link" href="#contact">上传我的作品 →</a>
+      </div>
+
+      <div class="wall-grid">
+        <figure class="wall-item big">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%232b6b4a'/%3E%3Cg fill='%231f4d36'%3E%3Crect y='360' width='800' height='140'/%3E%3C/g%3E%3Cg%3E%3Crect x='290' y='200' width='220' height='22' rx='9' fill='%23a9d6bf'/%3E%3Crect x='282' y='196' width='236' height='12' rx='6' fill='%234e9e77'/%3E%3Crect x='304' y='222' width='18' height='140' rx='7' fill='%23a9d6bf'/%3E%3Crect x='478' y='222' width='18' height='140' rx='7' fill='%23a9d6bf'/%3E%3C/g%3E%3Cg fill='%23f7c86b' opacity='.85'%3E%3Ccircle cx='660' cy='120' r='34'/%3E%3C/g%3E%3Cg fill='%233a8460' opacity='.6'%3E%3Ccircle cx='130' cy='130' r='80'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：绿色椅子置于深绿墙面与木地板之间的静物画面" width="800" height="500">
+          <figcaption class="wall-cap">《一把椅子的肖像》 · 林知远</figcaption>
+        </figure>
+
+        <figure class="wall-item mid tall">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Crect width='500' height='500' fill='%23e6d8c6'/%3E%3Cg fill='%234e9e77'%3E%3Crect y='330' width='500' height='170' opacity='.8'/%3E%3C/g%3E%3Cg fill='%237a5b3c'%3E%3Crect x='70' y='250' width='360' height='16' rx='7'/%3E%3Crect x='90' y='266' width='12' height='70' rx='5'/%3E%3Crect x='398' y='266' width='12' height='70' rx='5'/%3E%3C/g%3E%3Cg fill='%232b6b4a'%3E%3Ccircle cx='150' cy='230' r='22'/%3E%3Ccircle cx='230' cy='218' r='18'/%3E%3Ccircle cx='320' cy='232' r='20'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='400' cy='100' r='40' opacity='.7'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：社区花园里的长桌与刚采摘的蔬菜" width="500" height="500">
+          <figcaption class="wall-cap">《收获那天》 · 周野</figcaption>
+        </figure>
+
+        <figure class="wall-item mid">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%237ba3c9'/%3E%3Cg fill='%23f5f1e8' opacity='.9'%3E%3Crect x='60' y='60' width='150' height='90' rx='9'/%3E%3Crect x='230' y='40' width='110' height='70' rx='9'/%3E%3Crect x='360' y='70' width='90' height='80' rx='9'/%3E%3C/g%3E%3Cg fill='%231f4d36' opacity='.55'%3E%3Crect x='80' y='80' width='80' height='8' rx='4'/%3E%3Crect x='80' y='98' width='50' height='8' rx='4'/%3E%3Crect x='250' y='60' width='60' height='7' rx='4'/%3E%3Crect x='378' y='92' width='50' height='7' rx='4'/%3E%3C/g%3E%3Cg fill='%233a8460'%3E%3Crect y='230' width='500' height='70'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：减碳账本中的月度数据对比图" width="500" height="300">
+          <figcaption class="wall-cap">《一年的数字》 · 沈一禾</figcaption>
+        </figure>
+
+        <figure class="wall-item sml">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%233a8460'/%3E%3Cg fill='%23a9d6bf'%3E%3Ccircle cx='150' cy='130' r='58'/%3E%3C/g%3E%3Cg fill='%231f4d36'%3E%3Crect y='210' width='300' height='90'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='230' cy='70' r='18'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：窗边绿色椅子的局部特写" width="300" height="300">
+          <figcaption class="wall-cap">《窗边》 · 徐晚</figcaption>
+        </figure>
+
+        <figure class="wall-item sml">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23c8a878'/%3E%3Cg stroke='%237a5b3c' stroke-width='8' fill='none'%3E%3Ccircle cx='150' cy='150' r='60'/%3E%3Cpath d='M150 90v120M90 150h120'/%3E%3C/g%3E%3Cg fill='%234e9e77'%3E%3Ccircle cx='60' cy='60' r='20'/%3E%3Ccircle cx='244' cy='240' r='24'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：旧木料拆解记录的手绘标注图" width="300" height="300">
+          <figcaption class="wall-cap">《拆之前》 · 陈拾</figcaption>
+        </figure>
+
+        <figure class="wall-item mid">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 300'%3E%3Crect width='500' height='300' fill='%231f4d36'/%3E%3Cg fill='%233a8460'%3E%3Crect x='40' y='180' width='420' height='18' rx='8'/%3E%3Crect x='60' y='198' width='14' height='70' rx='6'/%3E%3Crect x='426' y='198' width='14' height='70' rx='6'/%3E%3C/g%3E%3Cg fill='%23a9d6bf'%3E%3Ccircle cx='160' cy='150' r='26'/%3E%3Ccircle cx='260' cy='138' r='20'/%3E%3Ccircle cx='350' cy='152' r='24'/%3E%3C/g%3E%3Cg fill='%23f7c86b'%3E%3Ccircle cx='450' cy='70' r='20' opacity='.85'/%3E%3C/g%3E%3C/svg%3E" alt="影像墙推荐：老小区楼道共用空间改造后的样子" width="500" height="300">
+          <figcaption class="wall-cap">《楼道的客厅》 · 何处安</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 -->
+  <section class="reviews" aria-labelledby="reviewsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>社区口碑</span>
+          <h2 id="reviewsTitle">他们说，这里像一间<span class="accent">安静的屋子</span></h2>
+          <p class="section-desc">以下评价来自站内留言与年度问卷，均经用户授权展示。我们保留不同意见，也保留那些不太客气的建议。</p>
+        </div>
+        <a class="section-link" href="#faq">常见问题 →</a>
+      </div>
+
+      <div class="review-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#3a8460,#a9d6bf)">陆</span>
+            <div><strong>陆青禾</strong><span>关注两年 · 木作爱好者</span></div>
+          </div>
+          <p>最喜欢的是这里不催更。别的平台都在喊“日更”，这里一条修复视频拍了三十多天，评论区反而更热闹，大家都在讨论榫卯的角度。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#7a5b3c,#c8a878)">杜</span>
+            <div><strong>杜小满</strong><span>关注一年 · 小学教师</span></div>
+          </div>
+          <p>我把“阳台种菜一整年”放给班上的孩子看，他们第一次知道番茄不是天生就长在超市货架上的。感谢这条片子，也感谢评论区那些认真回答的成年人。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#7ba3c9,#a9d6bf)">郑</span>
+            <div><strong>郑一鸣</strong><span>关注八个月 · 能源从业者</span></div>
+          </div>
+          <p>减碳账本系列的数据标注做得比很多行业报告还清楚。有一点小建议：希望能提供表格下载，方便我们做二次对比。已经在反馈区提过了。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#a8845e,#e6d8c6)">白</span>
+            <div><strong>白露</strong><span>关注三年 · 摄影爱好者</span></div>
+          </div>
+          <p>画质和播放体验很稳，高清模式下基本没有卡顿。作为一个不爱社交的人，我很少注册账号，但这里的气氛让我愿意留一句话再走。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#4e9e77,#e6d8c6)">罗</span>
+            <div><strong>罗建国</strong><span>关注半年 · 退休工程师</span></div>
+          </div>
+          <p>我年纪大了，看视频不爱快进。这里的片子节奏舒服，旁白也清楚。唯一希望把字号再做大一点，手机上有些说明文字看着费力。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#2b6b4a,#7ba3c9)">韩</span>
+            <div><strong>韩亦可</strong><span>关注两个月 · 社区工作者</span></div>
+          </div>
+          <p>“楼道的客厅”那条我转给了整个街道的工作群。我们正在做类似的改造，片中居民说话的方式给了我很多启发——先坐下，再谈设计。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#c8a878,#3a8460)">孟</span>
+            <div><strong>孟星野</strong><span>关注一年半 · 在校学生</span></div>
+          </div>
+          <p>投稿审核比想象中严格，我第一次投被退回来了，编辑写了整整两段修改意见，说希望我把镜头对准手而不是脸。改完再投，过了。这件事让我对这个平台有了信任。</p>
+          <div class="stars">★★★★★</div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <span class="avatar" style="background:linear-gradient(135deg,#3a8460,#7ba3c9)">许</span>
+            <div><strong>许照</strong><span>关注五个月 · 自由职业</span></div>
+          </div>
+          <p>希望专题的更新频率再快些，尤其是“旧物新生”，每期都期待。另外建议增加一个可以按城市筛选的功能，方便找到同城的创作者。</p>
+          <div class="stars">★★★★☆</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 企业动态 + 合作 -->
+  <section id="news" aria-labelledby="newsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>企业动态</span>
+          <h2 id="newsTitle">官方发布与<span class="accent">近期更新</span></h2>
+          <p class="section-desc">这里记录平台自身的进展：内容规范、功能迭代、线下活动与共创计划。我们尽量把每一步都写在明处。</p>
+        </div>
+        <a class="section-link" href="#contact">媒体联络 →</a>
+      </div>
+
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-date">06/12<span>2025</span></div>
+          <div>
+            <h3>《可持续影像内容规范 2.0》正式发布</h3>
+            <p>新版规范细化了数据引用、素材授权与商业标注的要求，适用于站内全部原创作品。创作者可在帮助中心查阅全文。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">06/05<span>2025</span></div>
+          <div>
+            <h3>社区创作者大赛“给地球的 3 分钟”开启报名</h3>
+            <p>面向所有认证创作者，征片时长三分钟以内，共设九个奖项。报名与作品上传通道已开放，截止时间为 7 月 20 日。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">05/28<span>2025</span></div>
+          <div>
+            <h3>“旧物新生”线下工作坊在上海与成都举办</h3>
+            <p>两场工作坊共接待 68 位参与者，由站内木作与裁缝创作者带课。现场素材将剪辑为专题第 13 期的组成部分。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">05/16<span>2025</span></div>
+          <div>
+            <h3>播放器与收藏夹功能更新</h3>
+            <p>新增倍速记忆、章节跳转与收藏夹分组。移动端同步上线，旧版收藏数据已完整迁移，无需手动操作。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">05/02<span>2025</span></div>
+          <div>
+            <h3>与三家环保机构达成内容合作</h3>
+            <p>合作方向包括城市绿地调查、废弃物追踪与公众科普。相关内容将统一标注合作来源，保持信息透明。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-date">04/19<span>2025</span></div>
+          <div>
+            <h3>年度内容透明度报告上线</h3>
+            <p>报告涵盖审核标准、处置数据与创作者收益分配情况。这是平台连续第三年发布同类报告。</p>
+          </div>
+        </article>
+      </div>
+
+      <div style="margin-top:52px">
+        <div class="section-head" style="margin-bottom:22px">
+          <div>
+            <span class="eyebrow"><i></i>合作伙伴</span>
+            <h2 style="font-size:23px">一起把内容做扎实的伙伴</h2>
+          </div>
+        </div>
+        <div class="partner-row">
+          <div class="partner"><div class="p-mark" style="background:#2b6b4a">绿</div><strong>绿源社区基金会</strong><span>城市绿地调查</span></div>
+          <div class="partner"><div class="p-mark" style="background:#7a5b3c">木</div><strong>木作工坊联盟</strong><span>线下工作坊支持</span></div>
+          <div class="partner"><div class="p-mark" style="background:#7ba3c9">环</div><strong>环知数据</strong><span>公开数据来源</span></div>
+          <div class="partner"><div class="p-mark" style="background:#a8845e">拾</div><strong>拾光旧物</strong><span>二手循环合作</span></div>
+          <div class="partner"><div class="p-mark" style="background:#3a8460">野</div><strong>野行户外</strong><span>自然影像共创</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><i></i>帮助中心</span>
+          <h2 id="faqTitle">关于平台，你可能<span class="accent">想知道的事</span></h2>
+          <p class="section-desc">以下问题来自社区反馈与客服记录的高频提问。如果仍然找不到答案，可以在页面底部提交反馈，我们会在两个工作日内回复。</p>
+        </div>
+        <a class="section-link" href="#contact">提交反馈 →</a>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>绿色椅子在线是一个什么样的平台？</summary>
+          <p>我们是一家以绿色生活为主题的原创影像社区，官方网站与移动端同步运营。内容方向包括旧物修复、城市种植、减碳记录、社区观察与家庭影像等。平台对投稿设有编辑审核，重点看内容是否真实、细节是否扎实。</p>
+        </details>
+        <details class="faq-item">
+          <summary>如何申请成为认证创作者？</summary>
+          <p>在“联系我们”区域选择“创作者认证”并填写表单，需提供至少三条原创作品链接与一段创作说明。审核周期通常为五到七个工作日，通过后会获得认证标识，并可参与专题共创与分成计划。</p>
+        </details>
+        <details class="faq-item">
+          <summary>投稿有哪些基本要求？</summary>
+          <p>作品须为原创或已取得完整授权，画面清晰，声音可辨。涉及数据、机构与人物时需注明来源或取得同意。我们不接受带有明显摆拍情节、夸大功效或未经标注的商业内容。</p>
+        </details>
+        <details class="faq-item">
+          <summary>平台如何保护创作者权益？</summary>
+          <p>作品版权归创作者所有，平台仅在授权范围内进行展示与推荐。商业合作需经创作者确认，收益按公开规则分配。我们提供侵权投诉通道，并保留完整的审核与处理记录。</p>
+        </details>
+        <details class="faq-item">
+          <summary>支持哪些清晰度与设备？</summary>
+          <p>目前支持标清、高清与超清播放，桌面端与移动端浏览器均可使用。播放器会自动根据网络情况调整，也可以在设置中手动锁定清晰度。</p>
+        </details>
+        <details class="faq-item">
+          <summary>专题企划如何参与？</summary>
+          <p>每个专题页面都设有“参与共创”入口，也可以在投稿时选择对应专题标签。编辑会根据主题契合度与内容完整度进行挑选，入选作品会出现在专题页与首页推荐位。</p>
+        </details>
+        <details class="faq-item">
+          <summary>线下工作坊如何报名？</summary>
+          <p>关注“企业动态”与站内公告即可获取报名信息。工作坊名额有限，通常采取先报名后确认的方式，参与者需自备部分工具，具体清单会在报名成功后发送。</p>
+        </details>
+        <details class="faq-item">
+          <summary>商务合作与媒体联络怎么走？</summary>
+          <p>请在联系区域选择“商务合作”并留下机构名称与需求说明。我们欢迎与环保机构、教育机构与生活方式品牌展开内容层面的合作，所有合作内容均会明确标注。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系 / 投稿 -->
+  <section id="contact" aria-labelledby="contactTitle">
+    <div class="wrap contact-grid">
+      <div class="contact-card">
+        <h2 id="contactTitle">坐下来，<br>把你的故事交给我们</h2>
+        <p>无论是投稿、认证、合作还是反馈，都欢迎从这里开始。我们更愿意读一段具体的描述，而不是一句“求合作”。每天上午十点前提交的消息，通常当天就会收到回复。</p>
+        <div class="contact-actions">
+          <button class="btn btn-light" data-open="submit">投稿入口</button>
+          <button class="btn btn-light" data-open="feedback">意见反馈</button>
+          <button class="btn btn-ghost" style="border-color:#a9d6bf;color:#d9efe3" data-share>分享本站</button>
+        </div>
+      </div>
+
+      <div class="contact-info">
+        <div>
+          <span class="ci-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></span>
+          <div><strong>内容合作邮箱</strong><span>content@greenchair.example</span></div>
+        </div>
+        <div>
+          <span class="ci-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg></span>
+          <div><strong>创作者支持</strong><span>工作日 10:00 – 19:00 在线</span></div>
+        </div>
+        <div>
+          <span class="ci-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+          <div><strong>线下空间</strong><span>影像工作室 · 需预约参观</span></div>
+        </div>
+        <div>
+          <span class="ci-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <div><strong>反馈响应</strong><span>两个工作日内回复</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#top">
+          <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="37" height="37" rx="11" fill="#2b6b4a"/>
+            <path d="M11 14.5h16a2.5 2.5 0 0 1 2.5 2.5v8.5h-4.2V19H14.7v6.5H10.5V17a2.5 2.5 0 0 1 2.5-2.5Z" fill="#a9d6bf"/>
+            <rect x="13.5" y="27.5" width="3.4" height="5" rx="1.2" fill="#f7c86b"/>
+            <rect x="23.1" y="27.5" width="3.4" height="5" rx="1.2" fill="#f7c86b"/>
+          </svg>
+          <span>绿色椅子在线<small>SEAT OF GREEN</small></span>
+        </a>
+        <p>绿色椅子在线官方网站，是一家持续运营的绿色生活原创影像社区。我们与创作者、企业与机构一起，把可持续的日常记录成可以被反复观看的内容。</p>
+        <div class="footer-badges">
+          <span>原创内容</span><span>高清播放</span><span>创作者认证</span><span>企业级审核</span>
+        </div>
+      </div>
+
+      <div>
+        <h4>浏览</h4>
+        <ul>
+          <li><a href="#focus">热门影像</a></li>
+          <li><a href="#topics">专题企划</a></li>
+          <li><a href="#stories">社区随笔</a></li>
+          <li><a href="#creators">创作者矩阵</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#news">企业动态</a></li>
+          <li><a href="#faq">帮助中心</a></li>
+          <li><a href="#contact">联系我们</a></li>
+          <li><a href="#contact">创作者认证</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>参与</h4>
+        <ul>
+          <li><a href="#contact">作品投稿</a></li>
+          <li><a href="#topics">专题共创</a></li>
+          <li><a href="#news">线下工作坊</a></li>
+          <li><a href="#contact">商务合作</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 绿色椅子在线 · 官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容审核与版权保护 · 备案号占位 · 品牌故事与用户至上</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" aria-label="回到顶部">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6"/></svg>
+</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="modal-mask" id="modalMask" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal" id="modalBody"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastEl = document.getElementById('toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var navToggle = document.getElementById('navToggle');
+  var mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', function(){
+    var open = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    navToggle.setAttribute('aria-label', open ? '收起导航' : '展开导航');
+  });
+  mainNav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded','false');
+      navToggle.setAttribute('aria-label','展开导航');
+    }
+  });
+
+  /* 搜索反馈 */
+  var searchInput = document.getElementById('siteSearch');
+  var searchTip = document.getElementById('searchTip');
+  var searchData = [
+    '旧木椅修复全记录','阳台种菜一整年','家庭减碳账本','社区共用客厅','一张绿椅子的三年',
+    '林知远','周野','沈一禾','徐晚','何处安','陈拾',
+    '旧物新生专题','城市里的四季','生活账本专题','投稿指南','创作者认证'
+  ];
+  function doSearch(){
+    var q = searchInput.value.trim();
+    if(!q){
+      searchTip.classList.remove('show');
+      return;
+    }
+    var hits = searchData.filter(function(item){ return item.indexOf(q) !== -1; });
+    if(hits.length){
+      searchTip.innerHTML = '找到 <b>' + hits.length + '</b> 条相关结果：<br>' +
+        hits.slice(0,4).map(function(h){ return '· ' + h; }).join('<br>');
+    }else{
+      searchTip.innerHTML = '暂无与“<b>' + q.replace(/[<>&]/g,'') + '</b>”完全匹配的内容，试试“旧物”“种植”或创作者名字。';
+    }
+    searchTip.classList.add('show');
+  }
+  var searchDebounce = null;
+  searchInput.addEventListener('input', function(){
+    clearTimeout(searchDebounce);
+    searchDebounce = setTimeout(doSearch, 220);
+  });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.search-box')) searchTip.classList.remove('show');
+  });
+
+  /* 点赞 / 收藏 */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-like]');
+    if(likeBtn){
+      var numEl = likeBtn.querySelector('b');
+      var raw = (numEl.textContent || '').replace(/,/g,'');
+      var n = parseInt(raw, 10) || 0;
+      if(likeBtn.classList.toggle('liked')){
+        n = n + 1;
+        toast('已点赞，感谢你的支持');
+      }else{
+        n = Math.max(0, n - 1);
+        toast('已取消点赞');
+      }
+      numEl.textContent = n.toLocaleString('en-US');
+      return;
+    }
+    var saveBtn = e.target.closest('[data-save]');
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle('saved');
+      saveBtn.querySelector('b').textContent = saved ? '已收藏' : '收藏';
+      toast(saved ? '已加入收藏夹' : '已从收藏夹移除');
+    }
+  });
+
+  /* 分享 */
+  function openShare(){
+    var modal = openModal(
+      '<h3>分享绿色椅子在线</h3>' +
+      '<p class="modal-sub">把这间安静的屋子推荐给可能需要的朋友。</p>' +
+      '<div class="share-row">' +
+        '<button data-channel="微信">微信</button>' +
+        '<button data-channel="微博">微博</button>' +
+        '<button data-channel="QQ">QQ</button>' +
+      '</div>' +
+      '<div class="modal-foot">' +
+        '<button class="btn btn-ghost btn-sm" data-copy>复制链接</button>' +
+        '<button class="btn btn-primary btn-sm" data-close>完成</button>' +
+      '</div>'
+    );
+    modal.querySelectorAll('[data-channel]').forEach(function(b){
+      b.addEventListener('click', function(){
+        toast('已生成' + b.getAttribute('data-channel') + '分享卡片');
+      });
+    });
+    var copyBtn = modal.querySelector('[data-copy]');
+    if(copyBtn){
+      copyBtn.addEventListener('click', function(){
+        var link = 'https://greenchair.example/';
+        if(navigator.clipboard && navigator.clipboard.writeText){
+          navigator.clipboard.writeText(link).then(function(){
+            toast('链接已复制到剪贴板');
+          }).catch(function(){
+            toast('复制失败，请手动复制链接');
+          });
+        }else{
+          toast('链接已准备好，可手动复制');
+        }
+      });
+    }
+  }
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-share]')){ openShare(); }
+  });
+
+  /* 弹窗 */
+  var modalMask = document.getElementById('modalMask');
+  var modalBody = document.getElementById('modalBody');
+  var lastFocus = null;
+
+  function openModal(html){
+    lastFocus = document.activeElement;
+    modalBody.innerHTML = html;
+    modalMask.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var firstInput = modalBody.querySelector('input,textarea,select,button');
+    if(firstInput) firstInput.focus();
+    bindModal();
+    return modalBody;
+  }
+  function closeModal(){
+    modalMask.classList.remove('open');
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function bindModal(){
+    modalBody.querySelectorAll('[data-close]').forEach(function(b){
+      b.addEventListener('click', closeModal);
+    });
+  }
+  modalMask.addEventListener('click', function(e){
+    if(e.target === modalMask) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modalMask.classList.contains('open')) closeModal();
+  });
+
+  var templates = {
+    submit: function(){
+      return '<h3>提交作品</h3>' +
+        '<p class="modal-sub">请填写作品基本信息，编辑会在两个工作日内回复审核结果。</p>' +
+        '<label for="sTitle">作品标题</label>' +
+        '<input id="sTitle" type="text" placeholder="例如：一把旧木椅的七十二小时">' +
+        '<label for="sTopic">对应专题</label>' +
+        '<select id="sTopic">' +
+          '<option>旧物新生</option>' +
+          '<option>城市里的四季</option>' +
+          '<option>生活账本</option>' +
+          '<option>暂不归属专题</option>' +
+        '</select>' +
+        '<label for="sDesc">作品简介</label>' +
+        '<textarea id="sDesc" placeholder="简单描述拍摄现场、过程与你的想法"></textarea>' +
+        '<div class="modal-foot">' +
+          '<button class="btn btn-ghost btn-sm" data-close>取消</button>' +
+          '<button class="btn btn-primary btn-sm" id="submitSend">提交</button>' +
+        '</div>';
+    },
+    feedback: function(){
+      return '<h3>意见反馈</h3>' +
+        '<p class="modal-sub">我们会认真阅读每一条反馈，包括不太客气的那些。</p>' +
+        '<label for="fType">反馈类型</label>' +
+        '<select id="fType">' +
+          '<option>内容建议</option>' +
+          '<option>播放问题</option>' +
+          '<option>版权与举报</option>' +
+          '<option>功能体验</option>' +
+        '</select>' +
+        '<label for="fText">具体描述</label>' +
+        '<textarea id="fText" placeholder="请尽量写清楚页面位置或作品名称"></textarea>' +
+        '<div class="modal-foot">' +
+          '<button class="btn btn-ghost btn-sm" data-close>取消</button>' +
+          '<button class="btn btn-primary btn-sm" id="feedbackSend">发送反馈</button>' +
+        '</div>';
+    },
+    author: function(name){
+      var map = {
+        '林知远': {f:'木作修复', n:'86 条作品 · 3.2 万关注', d:'家具修复师，拍摄十二年来的修复现场。作品强调过程真实，不回避失败与返工。'},
+        '周野': {f:'城市种植', n:'112 条作品 · 4.6 万关注', d:'阳台种植第七年，擅长把种植知识讲成日常对话，长期更新四季轮作记录。'},
+        '沈一禾': {f:'数据科普', n:'54 条作品 · 2.7 万关注', d:'能源行业工程师，用表格与图表讲清减碳话题，坚持标注每一条数据来源。'},
+        '徐晚': {f:'家庭影像', n:'38 条作品 · 5.1 万关注', d:'固定机位爱好者，用长时间同一视角记录屋子里的变化与陪伴。'},
+        '何处安': {f:'社区观察', n:'67 条作品 · 1.9 万关注', d:'社区营造工作者，镜头常对着楼道、长椅与菜市场，保留大量居民原声。'},
+        '陈拾': {f:'旧物采买', n:'95 条作品 · 3.8 万关注', d:'旧货市场常客，擅长在杂物中辨认值得留下的东西，正在拍摄平价好物系列。'}
+      };
+      var info = map[name] || {f:'创作者', n:'', d:'站内认证创作者。'};
+      return '<h3>' + name + '</h3>' +
+        '<p class="modal-sub">' + info.f + ' · ' + info.n + '</p>' +
+        '<p style="font-size:13.5px;color:#4d5f56;line-height:1.8">' + info.d + '</p>' +
+        '<div class="modal-foot">' +
+          '<button class="btn btn-ghost btn-sm" data-close>关闭</button>' +
+          '<button class="btn btn-primary btn-sm" id="authorFollow">关注创作者</button>' +
+        '</div>';
+    }
+  };
+
+  document.addEventListener('click', function(e){
+    var openBtn = e.target.closest('[data-open]');
+    if(openBtn){
+      var key = openBtn.getAttribute('data-open');
+      var html = templates[key] ? templates[key]() : '';
+      if(!html) return;
+      openModal(html);
+      var sendId = key === 'submit' ? 'submitSend' : 'feedbackSend';
+      var sendBtn = modalBody.querySelector('#' + sendId);
+      if(sendBtn){
+        sendBtn.addEventListener('click', function(){
+          var titleEl = modalBody.querySelector('input,textarea,select');
+          if(titleEl && !titleEl.value.trim() && titleEl.tagName !== 'SELECT'){
+            toast('请先填写内容再提交');
+            titleEl.focus();
+            return;
+          }
+          closeModal();
+          toast(key === 'submit' ? '作品已提交，编辑会在两个工作日内回复' : '反馈已发送，感谢你的建议');
+        });
+      }
+      return;
+    }
+    var authorBtn = e.target.closest('[data-author]');
+    if(authorBtn){
+      var name = authorBtn.getAttribute('data-author');
+      openModal(templates.author(name));
+      var followBtn = modalBody.querySelector('#authorFollow');
+      if(followBtn){
+        followBtn.addEventListener('click', function(){
+          followBtn.textContent = '已关注';
+          followBtn.classList.remove('btn-primary');
+          followBtn.classList.add('btn-ghost');
+          toast('已关注 ' + name);
+        });
+      }
+    }
+  });
+
+  /* 回到顶部 */
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 520) backTop.classList.add('show');
+    else backTop.classList.remove('show');
+  }, {passive:true});
+  backTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 数字滚动 */
+  var counters = document.querySelectorAll('[data-count]');
+  var counted = false;
+  function runCount(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var start = null;
+      var dur = 1100;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = Math.round(target * eased);
+        el.textContent = val.toLocaleString('en-US');
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting) runCount(); });
+    }, {threshold:0.4});
+    counters.forEach(function(c){ io.observe(c); });
+  }else{ runCount(); }
+})();
+</script>
+</body>
+              </html>
